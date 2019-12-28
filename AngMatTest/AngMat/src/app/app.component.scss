@@ -1,0 +1,49 @@
+
+  .cardContainer {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    // align-items: center;
+    // align-content: center;
+    justify-content: center;
+  }
+
+  .cardContainer .card {
+    text-align: center;
+    margin: 15px;
+    min-width: 30%;
+    height: 35%;
+  }
+
+  div.ng-tns-c1-0.ng-trigger.ng-trigger-slideInAnimation {
+    min-height: 90%;
+  }
+.anim1 {
+  position:absolute;
+  top: 250px;
+  left: 50%;
+  //animation-name: speedRight;
+  //animation-duration: 2s;
+  //animation-iteration-count: infinite;
+  animation: speedRight 0.5s ease-in 1.5s 1 forwards;
+}
+.anim2 {
+  position: absolute;
+  top: 250px;
+  left: 45%;
+  animation: speedRight 0.5s ease-in 1.8s 1 forwards;
+}
+.anim3 {
+  position: absolute;
+  top: 250px;
+  left: 40%;
+  animation: speedRight 3s ease-in 2s 1 forwards;
+}
+@keyframes speedRight {
+  from {
+   //margin-left: -200px;
+  }
+  to {
+    margin-left: 1000px;
+  }
+}

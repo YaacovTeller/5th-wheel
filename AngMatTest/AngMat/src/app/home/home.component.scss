@@ -1,0 +1,52 @@
+.homePic {
+  text-align: center;
+  overflow: hidden;
+  justify-content: center;
+  display: flex;
+  width: 100%;
+}
+.quote {
+  font-size: 30px;
+  opacity: 0.8;
+  max-width: 35vw;
+}
+.firstDiv img{
+  max-width: 50vw;
+  margin-left: 20px;
+  margin-top: 10px ;
+  display: inline-block;
+}
+.firstQuote {
+  //width: min-content;
+  float: right;
+  margin-top: 15vh;
+  margin-right: 15vh;
+}
+.secondDiv {
+//  width: 100%;
+  margin-top: 10vh;
+}
+.secondDiv img {
+//  margin-top: 200px;
+  border-radius: 15px;
+  max-width: 50%;
+  float: right;
+}
+.secondQuote {
+  float: left;
+  margin-top: 20vh;
+  margin-left: 20vh;
+  margin-bottom: 18vh;
+}
+.thirdDiv {
+  width: 100%;
+  float: left;
+}
+.thirdDiv img {
+  border-radius: 15px;
+  max-width: 50%;
+}
+.thirdQuote{
+  float: right;
+  margin-top: -300px;
+}

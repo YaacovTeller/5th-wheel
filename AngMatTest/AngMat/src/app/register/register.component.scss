@@ -1,0 +1,44 @@
+
+.box {
+  display: flex;
+  max-width: 500px;
+  // height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  // align-items: center;
+  // justify-content: center;
+  padding-left: 35px;
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+
+.box > * {
+  // width: 15%;
+  // height: 200px;
+  // text-align: center;
+}
+
+div.box {
+  width: 100px;
+  height: 50px;
+}
+
+.fa {
+  margin-right: 3px;
+}
+.fas {
+  margin-left: 5px;
+}
+
+mat-option span {
+  margin-right: 10px;
+}
+
+mat-option #spn {
+  margin-right: 2px;
+}
+
+h2 {
+  text-align: center;
+}
