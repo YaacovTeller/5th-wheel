@@ -1,0 +1,113 @@
+.sidenav-container .sidenav mat-nav-list {
+  overflow: hidden;
+}
+.sidenav {
+  width: 200px;
+  overflow: hidden;
+}
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+.mat-toolbar-single-row {
+ // padding: 0;
+}
+.mat-toolbar-single-row span {
+  padding: 16px;
+}
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.mat-toolbar, .mat-toolbar h1, .mat-toolbar h2, .mat-toolbar h3, .mat-toolbar h4, .mat-toolbar h5, .mat-toolbar h6 {
+  font-weight: 200;
+}
+//HOVERS
+.mat-toolbar a {
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+  margin-right: 20px;
+}
+.mat-toolbar a:hover{
+  transform: scale(1.1)
+}
+//HOVERS
+.link {
+  cursor: pointer;
+  transition: all .1s ease-in-out;
+  margin-right: 16px;
+  outline: 0;
+  z-index:1;
+}
+.link:hover {
+  transform: scale(1.05);
+  color: orange;
+//  background: rgba(255, 255, 255, 0.04);
+}
+.link * {
+  display: inline-block;
+ // margin-right: 10px;
+  cursor: pointer;
+}
+.link .iconbox {
+  margin-right: 5px;
+}
+.link .iconbox i {
+  float: right;
+  max-width: none;
+  max-height: none;
+}
+.logo {
+  width: 170px;
+  position: absolute;
+  bottom: 10px;
+  left: 15px;
+  z-index: -1;
+}
+.logo_nav {
+  width: 200px;
+  margin-left: 0px;
+  margin-right: 20px;
+}
+
+.example-fill-remaining-space {
+  flex: 1 1 auto;
+}
+.right {
+  margin-left: 15px;
+}
+mat-nav-list label{
+  //margin-left: 10px;
+  font-family: 'Arial';
+}
+mat-toolbar{
+  padding-left: 20px;
+}
+.disabled {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.5;
+}
+a label {
+  cursor: pointer;
+}
+.routerWrapper{
+  min-height: 75vh;
+}
+.iconbox{
+  display: flex;
+  width: 25px;
+}
+.fa-car {
+  font-size: 26px;
+}
+.dark{
+  opacity: 0.2;
+  right: 0px;
+}
+.rghtMrgn{
+  margin-right: 16px;
+}
+.nudge{
+  margin-right: 25px;
+}

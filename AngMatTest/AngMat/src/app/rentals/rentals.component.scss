@@ -1,0 +1,85 @@
+h1 {
+  text-align: center;
+}
+h3 {
+  text-align: center;
+}
+
+.cardContainer {
+  display: flex;
+  justify-content: space-between;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+}
+.topCard {
+  display: inline-block;
+  margin: 15px;
+}
+.table {
+  max-width: 800px;
+  margin: 15px;
+}
+
+.carCardContainer {
+  margin-top: 10px;
+  margin-left: 10px;
+  /*display: flex;*/
+  /*align-items: center;*/
+  /*width: 40%;*/
+}
+.carCard {
+  display: inline-block;
+  margin: 10px;
+  transition: all .2s ease-in-out;
+}
+.growOnHover:hover {
+  transform: scale(1.05)
+}
+.carCard:hover {
+
+}
+
+.extraMargin {
+  margin-left: 30px;
+}
+
+/*.trimmedimg {
+  position: relative;
+  float: left;
+  width: 100px;
+  height: 100px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}*/
+.modelPic{
+  max-width: 200px;
+}
+.modelDetails{
+  font-size: 18px;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.crop {
+  height: 200px;
+  width: 380px;
+  overflow: hidden;
+}
+.crop img {
+  height: auto;
+  width: 380px;
+}
+.disabledCursor {
+  cursor: not-allowed !important;
+  opacity: 0.3;
+}
+.disabledEvents {
+  pointer-events: none !important;
+}
+.link {
+  cursor: pointer;
+}
+

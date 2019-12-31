@@ -1,0 +1,35 @@
+<mat-card>
+  <!--<mat-form-field>
+    <input matInput [(ngModel)]="editedCar.CarTypeId" placeholder="CarType id">
+  </mat-form-field>
+  <br />-->
+  <mat-form-field>
+    <input matInput [(ngModel)]="editedCar.Manufacturer" placeholder="Manufacturer">
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <input matInput [(ngModel)]="editedCar.Model" placeholder="Model">
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <input matInput [(ngModel)]="editedCar.PricePerDay" placeholder="Price per day (£)">
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <input matInput [(ngModel)]="editedCar.PricePerDayOver" placeholder="Delay charge (£)">
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <input matInput [(ngModel)]="editedCar.YearOfManufacture" placeholder="YearOfManufacture">
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <input matInput [(ngModel)]="editedCar.Transmission" placeholder="Transmission">
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <input matInput [(ngModel)]="editedCar.PictureUrl" placeholder="PictureUrl">
+  </mat-form-field>
+  <br />
+  <button mat-raised-button color="accent" (click)="save()"> Save </button>
+</mat-card>

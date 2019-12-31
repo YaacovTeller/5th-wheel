@@ -1,0 +1,70 @@
+<h1>Select a vehicle</h1>
+<div class="cardContainer">
+  <mat-card class="topCard">
+    <mat-card-header>
+      <mat-card-title>
+        <h4 *ngIf="carType">Your chosen model: {{carType.Manufacturer}} {{carType.Model}} - ID {{carType.CarTypeId}}</h4>
+        <h3 *ngIf="!carType">No model selected</h3>
+        <section class="switch">
+          <mat-slide-toggle id="allCarsViewbtn" (change)="viewAllCars()" [(ngModel)]="allCarsView" class="switch" color="warning">
+            <!--[disabled]="allCarsView"-->
+            View all cars: {{allCarsView}}
+          </mat-slide-toggle>
+          <button class="extraMargin" mat-raised-button color="accent" (click)="backToSearch()">Back to Search</button>
+        </section>
+      </mat-card-title>
+    </mat-card-header>
+   
+    <mat-card-content *ngIf="carType">
+      <img class="modelPic" *ngIf="carType" src="{{carType.PictureUrl}}" onerror="this.src='https://www.logoground.com/uploads/2018135182018-05-122542857SPORTS%20CAR%20LOGO.jpg'" alt="Model pic">
+      <div class="modelDetails">
+        <b>Car type</b> {{carType.CarTypeId}}<br>
+        <b>Costs</b> {{carType.PricePerDay | currency: 'GBP'}} <b>per day</b><br>
+        {{carType.PricePerDayOver | currency: 'GBP'}} <b>overdue charge per day</b><br>
+        <b>Transmission: </b>{{carType.Transmission}}<br>
+      </div>
+      <!--<button mat-raised-button color="accent" (click)="">Select</button>-->
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="table">
+    <h3 *ngIf="!usersRentals">You have no past rentals</h3>
+    <h3 *ngIf="usersRentals">Your past rentals:</h3>
+    <table *ngIf="usersRentals" matSort (matSortChange)="sortData($event)">
+      <!-- (matSortChange)="sortData($event)"-->
+      <tr>
+        <th mat-sort-header="RentalsId">Rental</th>
+        <th mat-sort-header="StartDate">Began</th>
+        <th mat-sort-header="DueBackDate">Ended</th>
+        <th mat-sort-header="ReturnedDate">Returned</th>
+        <th mat-sort-header="CarId">Car</th>
+      </tr>
+      <mat-divider></mat-divider>
+      <tr *ngFor="let r of sortedUsersRentals">
+        <td>{{r.RentalsId}}</td>
+        <td>{{r.StartDate | date :'shortDate' | date: 'd/M/yy'}}</td>
+        <td>{{r.EndDate | date :'shortDate' | date: 'd/M/yy'}}</td>
+        <td>{{r.Returned | date :'shortDate' | date: 'd/M/yy'}}</td>
+        <td>{{r.CarId}} {{r.Car.CarType.Manufacturer}} {{r.Car.CarType.Model}}</td>
+      </tr>
+    </table>
+  </mat-card>
+
+</div>
+
+<h2 *ngIf="carType && !allCarsView" class="extraMargin">Cars of this model:</h2>
+<h2 *ngIf="!carType && !allCarsView" class="extraMargin">No cars selected</h2>
+<h2 *ngIf="allCarsView" class="extraMargin">All cars:</h2>
+<div class="carCardContainer" *ngIf="carsForSelection">
+  <mat-card class="carCard" [class.growOnHover]="car.Available ? true : null" [class.disabledCursor]="car.Available ? null : true" *ngFor="let car of carsForSelection">
+    <div class="link" (click)="setServiceCar(car)" [routerLink]="['/checkout']" [class.disabledEvents]="car.Available ? null : true">
+      <div class="crop"><img src="{{car.PictureUrl}}" alt="{{car.CarType.Model}} image" onerror="this.src='https://banner2.kisspng.com/20180130/zye/kisspng-car-scalable-vector-graphics-icon-ford-shadow-5a710a7d5bfe42.4223607115173576933768.jpg'"></div>
+      <br>
+      {{car.CarType.Manufacturer}} {{car.CarType.Model}} - car Id: {{car.CarId}}<br><b>Mileage:</b> {{car.Mileage}}<br>
+      <b>Available:</b> {{car.Available}}<br><b>Reg. No. </b>{{car.CarNumber}}<br><b>Located in</b> {{car.Branch.Address}}
+
+    </div>
+  </mat-card>
+</div>
+<!--<div class="trimmedimg" style="background-image:url('{{car.PictureUrl}}');"></div>-->
+<!--<img class="trimmedimg" src="{{car.PictureUrl}}" alt="{{car.CarType.Model}} image">-->

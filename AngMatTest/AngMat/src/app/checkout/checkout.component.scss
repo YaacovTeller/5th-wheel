@@ -1,0 +1,21 @@
+h1 {
+  text-align: center;
+}
+.carCardContainer {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.carCard {
+  display: inline-block;
+  margin: 10px;
+}
+.crop {
+  height: 200px;
+  width: 400px;
+  overflow: hidden;
+}
+.crop img {
+  height: auto;
+  width: 400px;
+}
+

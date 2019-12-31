@@ -1,0 +1,115 @@
+<div class="cardContainer">
+  <mat-card class="card">
+    <h1> Select a car model</h1>
+    <div class="inline lftmrgn">
+      <h4>Search by Manufacturer</h4>
+      <mat-form-field>
+        <mat-label>Manufacturer</mat-label>
+        <mat-select name="make" class="form-control" (selectionChange)="change()" [(ngModel)]="selected.Manufacturer">
+          <mat-option>None</mat-option>
+          <mat-option *ngFor="let manufacturer of Manufacturers" [value]="manufacturer">{{manufacturer}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="inline lftmrgn">
+      <h4>Search by Model</h4>
+      <mat-form-field>
+        <mat-label>Model</mat-label>
+        <mat-select name="model" class="form-control" (selectionChange)="!AllCarsView ? toggle(): toggle2()" [(ngModel)]="selected.Model">
+          <mat-option>None</mat-option>
+          <mat-option *ngFor="let type of reducedModels" [value]="type.Model">{{type.Model}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="inline lftmrgn">
+      <h4>Search by Year</h4>
+      <mat-form-field>
+        <mat-label>Year</mat-label>
+        <mat-select name="year" class="form-control" (selectionChange)="!AllCarsView ? toggle(): toggle2()" [(ngModel)]="selected.Year">
+          <mat-option>None</mat-option>
+          <mat-option *ngFor="let year of Years" [value]="year">{{year}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="inline lftmrgn">
+      <h4>Search by text</h4>
+      <mat-form-field>
+        <mat-label>Text</mat-label>
+        <input matInput name="text" class="form-control" (change)="!AllCarsView ? toggle(): toggle2()" [(ngModel)]="selected.Text">
+      </mat-form-field>
+    </div>
+
+  </mat-card>
+</div>
+
+<div class="cardContainer">
+  <mat-card class="card">
+    <h2 class="inline btmmrgn">Showing:</h2>
+    <div class="inline lftmrgn">
+      <h3>manual</h3>
+      <section class="switch">
+        <mat-slide-toggle (change)="!AllCarsView ? toggle(): toggle2()" [(ngModel)]="switch.Manual" class="switch" color="primary">
+          {{switch.Manual}}
+        </mat-slide-toggle>
+      </section>
+    </div>
+    <div class="inline lftmrgn">
+      <h3>automatic</h3>
+      <section class="switch">
+        <mat-slide-toggle (change)="!AllCarsView ? toggle(): toggle2()" [(ngModel)]="switch.Automatic" class="switch" color="primary">
+          {{switch.Automatic}}
+        </mat-slide-toggle>
+      </section>
+    </div>
+    <div class="inline lftmrgn">
+      <h3>unavailable</h3>
+      <section class="switch">
+        <mat-slide-toggle (change)="!AllCarsView ? toggle(): toggle2()" [(ngModel)]="switch.Unavailable" class="switch" color="warning">
+          {{switch.Unavailable}}
+        </mat-slide-toggle>
+      </section>
+    </div>
+    <button mat-raised-button color="accent" (click)="rentals_allCars()">
+    <span *ngIf="!AllCarsView">Switch to ALL CARS view</span>
+    <span *ngIf="AllCarsView">Switch to MODELS view</span></button>
+  </mat-card>
+</div>
+<!--LOADING SPINNER-->
+<div class="flex"><mat-spinner *ngIf="!displayTypes" color="warn"></mat-spinner></div>
+
+<div *ngIf="!AllCarsView" class="carCardContainer carTypeCardContainer">
+  <mat-card class="carCard" *ngFor="let car of displayTypes">
+    <mat-card-header>
+      <mat-card-title>
+        <h4>{{car.Manufacturer}} {{car.Model}} {{car.Id}}</h4>
+      </mat-card-title>
+    </mat-card-header>
+    <div class="imgCrop">
+      <img src="{{car.PictureUrl}}" onerror="this.src='https://www.logoground.com/uploads/2018135182018-05-122542857SPORTS%20CAR%20LOGO.jpg'" alt="Car pic">
+    </div>
+    <mat-card-content>
+
+      Costs {{car.PricePerDay | currency: 'GBP'}} per day<br>
+      Transmission: {{car.Transmission}}<br>
+      <button mat-raised-button color="accent" (click)="rent(car)">Select model</button>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div *ngIf="AllCarsView" class="carCardContainer">
+  <mat-card [class.disabledCursor]="car.Available ? null : true" class="carCard" *ngFor="let car of displayCars">
+      <mat-card-title>
+        <div>{{car.CarType.Manufacturer}}<br>{{car.CarType.Model}}</div>
+      </mat-card-title>
+    <img src="{{car.PictureUrl}}" alt="Car pic">
+    <mat-card-content>
+      <b>Mileage:</b> {{car.Mileage}}<br>
+      <b>Available:</b> {{car.Available}}<br><b>Reg. No. </b>{{car.CarNumber}}<br><b>Located in</b> {{car.Branch.Address}}<br>
+      <b>Transmission:</b> {{car.CarType.Transmission}}<br>
+      Costs {{car.CarType.PricePerDay | currency: 'GBP'}} per day<br>
+      <button mat-raised-button color="accent" (click)="rent(car.CarType)">Select model</button>
+    </mat-card-content>
+  </mat-card>
+</div>
+

@@ -1,0 +1,60 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="((isHandset$ | async) === false) && loggedUser && loggedUser.Permission >= 1">
+    <mat-toolbar>Admin menu</mat-toolbar>
+    <mat-nav-list>
+      <!--<a mat-list-item routerLink="/home" routerLinkActive="active"><div class="iconbox"><i class="fa fa-home fa-lg"></i></div><label>Home</label></a>
+  <a mat-list-item routerLink="/search"><div class="iconbox"><i class="fas fa-search"></i></div><label>Search</label></a>
+  <a mat-list-item routerLink="/rentals" [class.disabled]="loggedIn ? null : true"><div class="iconbox"><i class="fa fa-car fa-lg"></i></div><label>Rentals</label></a>
+  <a mat-list-item routerLink="/checkout" [class.disabled]="loggedIn ? null : true"><div class="iconbox"><i class="fa fa-pound-sign fa-lg"></i></div><label>Checkout</label></a>
+  <mat-divider></mat-divider>
+  <a mat-list-item routerLink="/login"><div class="iconbox"><i class="fa fa-address-card fa-lg inline"></i></div><label>Login</label></a>
+  <a mat-list-item routerLink="/register"><div class="iconbox"><i class="fab fa-stack-overflow fa-lg"></i></div><label>Register</label></a>-->
+      <mat-divider></mat-divider>
+      <a class="link" *ngIf="loggedUser && loggedUser.Permission == 2" mat-list-item routerLink="/viewRentals"><div class="iconbox"><i class="fas fa-tachometer-alt fa-lg"></i></div><label>View Rentals</label></a>
+      <a class="link" *ngIf="loggedUser && loggedUser.Permission >= 1" mat-list-item routerLink="/manageReturns"><div class="iconbox"><i class="fas fa-gas-pump fa-lg"></i></div><label>Manage Returns</label></a>
+      <a class="link" *ngIf="loggedUser && loggedUser.Permission == 2" mat-list-item routerLink="/manageCars"><div class="iconbox"><i class="fas fa-car fa-lg"></i></div><label>Manage Cars</label></a>
+      <a class="link" *ngIf="loggedUser && loggedUser.Permission == 2" mat-list-item routerLink="/manageCarTypes"><div class="iconbox"><i class="fas fa-car-side fa-lg"></i></div><label>Manage Car Types</label></a>
+      <a class="link" *ngIf="loggedUser && loggedUser.Permission == 2" mat-list-item routerLink="/manageUsers"><div class="iconbox"><i class="fas fa-users fa-lg"></i></div><label>Manage Users</label></a>
+      <mat-divider></mat-divider>
+      <a class="link" mat-list-item routerLink="/error"><div class="iconbox"><i class="fas fa-skull fa-lg"></i></div><label>Not Found</label></a>
+      <img class="logo" type=file src=".\..\..\assets\5thWheel6.png" />
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button type="button"
+              aria-label="Toggle sidenav"
+              mat-icon-button
+              (click)="drawer.toggle()"
+              *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <img class="logo_nav" type=file src=".\..\..\assets\5thWh_line_BW.png" />
+      <div class="link" mat-list-item routerLink="/home" routerLinkActive="active"><div class="iconbox"><i class="fa fa-home fa-lg"></i></div><label *ngIf="drawer.mode == 'side'">Home</label></div>
+      <div class="link nudge" mat-list-item routerLink="/search"><div class="iconbox"><i class="fas fa-search"></i></div><label *ngIf="drawer.mode == 'side'">Search</label></div>
+      <div class="link" mat-list-item routerLink="/rentals" [class.disabled]="loggedIn ? null : true"><div class="iconbox"><i class="fa fa-car fa-lg"></i></div><label *ngIf="drawer.mode == 'side'">Rentals</label></div>
+      <div class="link nudge" mat-list-item routerLink="/checkout" [class.disabled]="loggedIn ? null : true"><div class="iconbox"><i class="fas fa-cash-register fa-lg"></i></div><label *ngIf="drawer.mode == 'side'">Checkout</label></div>
+      <mat-divider></mat-divider>
+      <div class="link nudge" mat-list-item routerLink="/login"><div class="iconbox"><i class="fa fa-address-card fa-lg inline"></i></div><label *ngIf="drawer.mode == 'side'">Login</label></div>
+      <div class="link" mat-list-item routerLink="/register"><div class="iconbox"><i class="fas fa-user-plus fa-lg"></i></div><label *ngIf="drawer.mode == 'side'">Register</label></div>
+      <mat-divider></mat-divider>
+      <span class="example-fill-remaining-space"></span>
+      <!--<mat-icon aria-label="Side nav toggle icon">menu</mat-icon>-->
+      <span class="right" *ngIf="!loggedUser">Logged out</span><a *ngIf="loggedUser" (click)="calltoLogout()">Log out</a><mat-divider style="height:60px" [vertical]="true"></mat-divider><div *ngIf="loggedUser" class="right rghtMrgn">Logged in as {{loggedUser.UserName}}</div>
+
+    </mat-toolbar>
+    <!--APP CONTENT-->
+    <div class="routerWrapper" [@slideInAnimation]="o.isActivated ? o.activatedRoute : ''">
+      <router-outlet #o="outlet"></router-outlet>
+    </div>
+    <app-message></app-message>
+    <app-footer></app-footer>
+    <app-footer-cards *ngIf="router.url === '/search'"></app-footer-cards>
+    <!--APP CONTENT-->
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!--<button mat-icon-button><mat-icon>child_friendly</mat-icon>    Login</button>-->
