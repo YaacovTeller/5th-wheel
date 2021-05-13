@@ -17,6 +17,7 @@ import { permissionPipe } from './../../services/pipes';
 })
 export class ManageUsersComponent implements OnInit {
 
+  userFolder: string = `./../../../assets/users/`;
   Users: User[];
   sortedUsers: User[];
   returnedDate: User;

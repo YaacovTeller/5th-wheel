@@ -14,17 +14,20 @@ import { MessageService, CarMessage } from '../services/message.service';
 })
 export class SearchCarsComponent implements OnInit {
 
-  allcarTypeData: CarType[] = []
-  reducedModels: CarType[] = []
-  allCarData: Car[] = []
-  Manufacturers: string[] = []
-  Years: number[] = []
-  displayTypes: CarType[] = []
-  displayCars: Car[] = []
+  fallbackLogo: string = './../../assets/fallbackImages/BrandName.jpg';
+  carTypeFolder: string = `./../../assets/carTypes/`;
+  carFolder: string = `./../../assets/cars/`;
+  allcarTypeData: CarType[] = [];
+  reducedModels:  CarType[] = [];
+  allCarData:     Car[]     = [];
+  Manufacturers:  string[]  = [];
+  Years:          number[]  = [];
+  displayTypes:   CarType[] = [];
+  displayCars:    Car[]     = [];
 
-  availableCars: Car[] = []
-  selected: any = {}
-  loggedIn: boolean
+  availableCars: Car[] = [];
+  selected: any = {};
+  loggedIn: boolean;
   switch: any = {
     Manual: true,
     Automatic: true,

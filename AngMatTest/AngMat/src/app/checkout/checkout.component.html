@@ -4,7 +4,7 @@
     <mat-card>
       <h4 *ngIf="!car">Select a vehicle at the rentals tab!</h4>
       <div class="link" [routerLink]="" *ngIf="car">
-        <div class="crop"><img src="{{car.PictureUrl}}" alt="{{car.CarType.Model}} image" onerror="this.src='https://banner2.kisspng.com/20180130/zye/kisspng-car-scalable-vector-graphics-icon-ford-shadow-5a710a7d5bfe42.4223607115173576933768.jpg'"></div>
+        <div class="crop"><img src="{{carFolder + car.PictureUrl}}" alt="{{car.CarType.Model}} image" onerror="this.src='./../../assets/fallbackImages/Car_placeholder.jpg'"></div>
         <br>
         {{car.CarType.Manufacturer}} {{car.CarType.Model}} - car Id: {{car.CarId}}<br><b>Mileage:</b> {{car.Mileage}}<br>
         <b>Available:</b> {{car.Available}}<br><b>Reg. No. </b>{{car.CarNumber}}<br><b>Located in</b> {{car.Branch.Address}}

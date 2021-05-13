@@ -8,19 +8,25 @@ import { Car } from '../Classes/Car';
 })
 export class FooterCardsComponent implements OnInit {
 
+  carFolder: string = `./../../assets/cars/`;
   carsOfInterest: Car[] = [];
   displayWanted: boolean = true;
+  currentCars: number;
 
   constructor() { }
 
   ngOnInit() {
-   setInterval(()=>this.fetchFromStorage(),1500)
-   
+    this.currentCars = 0;
+    setInterval(() => this.fetchFromStorage(), 1500)
+
   }
 
   fetchFromStorage() {
     var temp = JSON.parse(localStorage.getItem("carsOfInterest"));
-    if (temp) this.carsOfInterest = temp;
+    if (temp && temp.length > this.currentCars) {
+      this.carsOfInterest = temp;
+      this.currentCars = temp.length;
+    }
   }
   toggleHide() {
     this.displayWanted = this.displayWanted ? false : true;

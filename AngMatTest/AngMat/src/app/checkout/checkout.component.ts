@@ -24,6 +24,7 @@ export class CheckoutComponent implements OnInit {
 
   }
 
+  carFolder: string = `./../../assets/cars/`;
   sDate: Date
   eDate: Date
   minDate: Date = new Date()
@@ -57,6 +58,9 @@ export class CheckoutComponent implements OnInit {
       var millisecondDifference = this.eDate.getTime() - this.sDate.getTime()
       this.daysDifference = millisecondDifference / (1000 * 60 * 60 * 24)
     }
+  }
+  picError() {
+
   }
 
   onSubmit() {

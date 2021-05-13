@@ -44,7 +44,7 @@ export class RegisterComponent {
   pictureFormControl = new FormControl('', []);
   dateFormControl = new FormControl('', []);
   minDate = new Date(1910, 0, 1);
-  maxDate = new Date(2010, 0, 1);
+  maxDate = new Date(2020, 0, 1);
 
   hide = true;
 

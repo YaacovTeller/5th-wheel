@@ -23,7 +23,8 @@
       <td>{{u.Gender}}</td>
       <td>{{u.Email}}</td>
       <td>{{u.Password}}</td>
-      <td><img style="width: 40px;" src="{{u.PictureUrl}}" /></td>
+      <td><img style="width: 40px;" src="{{u.PictureUrl ? userFolder + u.PictureUrl : (u.Gender=='male'?(userFolder + 'male.png'):(userFolder + 'female.jpg'))}}"
+               title="{{u.Fullname + ' mugshot'}}" /></td>
       <td>{{u.Permission | permission}}</td>
       <button mat-raised-button color="primary" (click)="openDialog(u)"> Edit </button>
       <button mat-raised-button color="accent" (click)="deleteAttempt(u, this)"> Delete </button>

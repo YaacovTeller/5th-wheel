@@ -10,7 +10,7 @@ GREAT BIG CARD<br /><br />
   </mat-card><br />
   <div *ngIf="displayWanted">
   <mat-card class="footerCardPic" *ngFor="let car of carsOfInterest">
-    <img src="{{car.PictureUrl}}" /><br />
+    <img src="{{carFolder + car.PictureUrl}}" /><br />
     {{car.CarType.Manufacturer}}<br />{{car.CarType.Model}}
 
   </mat-card>

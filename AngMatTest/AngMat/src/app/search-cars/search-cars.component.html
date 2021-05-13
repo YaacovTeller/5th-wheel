@@ -80,16 +80,15 @@
 
 <div *ngIf="!AllCarsView" class="carCardContainer carTypeCardContainer">
   <mat-card class="carCard" *ngFor="let car of displayTypes">
-    <mat-card-header>
-      <mat-card-title>
+      <mat-card-title class="twoLine">
         <h4>{{car.Manufacturer}} {{car.Model}} {{car.Id}}</h4>
       </mat-card-title>
-    </mat-card-header>
-    <div class="imgCrop">
-      <img src="{{car.PictureUrl}}" onerror="this.src='https://www.logoground.com/uploads/2018135182018-05-122542857SPORTS%20CAR%20LOGO.jpg'" alt="Car pic">
-    </div>
-    <mat-card-content>
 
+    <div class="carTypeImgSize">
+      <img src="{{carTypeFolder + car.PictureUrl}}" onerror= "this.src = ''" alt="Car pic">
+    </div>
+
+    <mat-card-content>
       Costs {{car.PricePerDay | currency: 'GBP'}} per day<br>
       Transmission: {{car.Transmission}}<br>
       <button mat-raised-button color="accent" (click)="rent(car)">Select model</button>
@@ -99,10 +98,12 @@
 
 <div *ngIf="AllCarsView" class="carCardContainer">
   <mat-card [class.disabledCursor]="car.Available ? null : true" class="carCard" *ngFor="let car of displayCars">
-      <mat-card-title>
+      <mat-card-title >
         <div>{{car.CarType.Manufacturer}}<br>{{car.CarType.Model}}</div>
       </mat-card-title>
-    <img src="{{car.PictureUrl}}" alt="Car pic">
+      <div class="carImgSize">
+        <img src="{{carFolder + car.PictureUrl}}" alt="Car pic" title="{{car.CarType.Manufacturer}} {{car.CarType.Model}}">
+      </div>
     <mat-card-content>
       <b>Mileage:</b> {{car.Mileage}}<br>
       <b>Available:</b> {{car.Available}}<br><b>Reg. No. </b>{{car.CarNumber}}<br><b>Located in</b> {{car.Branch.Address}}<br>

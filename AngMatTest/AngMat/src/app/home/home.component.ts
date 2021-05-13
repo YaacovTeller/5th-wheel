@@ -14,5 +14,9 @@ export class HomeComponent implements OnInit {
     var m: CarMessage = new CarMessage("Welcome!", `I, mailChimp, will manage messages and errorhandling here`);
     this.messageService.changeMessage(m)
   }
-
+  assets: string = `./../../assets/`;
+  logo: string = `5thWheel6.png`;
+  car1: string = `Bugatti_Divo.jpg`;
+  car2: string = `lamborghini-huracans-mountains.jpg`;
+  car3: string = `Maserati.jpg`;
 }

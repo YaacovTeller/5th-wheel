@@ -16,7 +16,7 @@
     </mat-card-header>
    
     <mat-card-content *ngIf="carType">
-      <img class="modelPic" *ngIf="carType" src="{{carType.PictureUrl}}" onerror="this.src='https://www.logoground.com/uploads/2018135182018-05-122542857SPORTS%20CAR%20LOGO.jpg'" alt="Model pic">
+      <img class="modelPic" *ngIf="carType" src="{{carTypeFolder + carType.PictureUrl}}" onerror="this.src='./../../assets/fallbackImages/Brand_placeholder.jpg'" alt="Model pic">
       <div class="modelDetails">
         <b>Car type</b> {{carType.CarTypeId}}<br>
         <b>Costs</b> {{carType.PricePerDay | currency: 'GBP'}} <b>per day</b><br>
@@ -49,7 +49,6 @@
       </tr>
     </table>
   </mat-card>
-
 </div>
 
 <h2 *ngIf="carType && !allCarsView" class="extraMargin">Cars of this model:</h2>
@@ -58,7 +57,7 @@
 <div class="carCardContainer" *ngIf="carsForSelection">
   <mat-card class="carCard" [class.growOnHover]="car.Available ? true : null" [class.disabledCursor]="car.Available ? null : true" *ngFor="let car of carsForSelection">
     <div class="link" (click)="setServiceCar(car)" [routerLink]="['/checkout']" [class.disabledEvents]="car.Available ? null : true">
-      <div class="crop"><img src="{{car.PictureUrl}}" alt="{{car.CarType.Model}} image" onerror="this.src='https://banner2.kisspng.com/20180130/zye/kisspng-car-scalable-vector-graphics-icon-ford-shadow-5a710a7d5bfe42.4223607115173576933768.jpg'"></div>
+      <div class="crop"><img src="{{carFolder + car.PictureUrl}}" alt="{{car.CarType.Model}} image" onerror="this.src = './../../assets/fallbackImages/Car_placeholder.jpg'"></div>
       <br>
       {{car.CarType.Manufacturer}} {{car.CarType.Model}} - car Id: {{car.CarId}}<br><b>Mileage:</b> {{car.Mileage}}<br>
       <b>Available:</b> {{car.Available}}<br><b>Reg. No. </b>{{car.CarNumber}}<br><b>Located in</b> {{car.Branch.Address}}

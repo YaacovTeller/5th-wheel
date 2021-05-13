@@ -19,6 +19,9 @@ import { Router } from '@angular/router';
 })
 export class RentalsComponent implements OnInit {
 
+  carTypeFolder: string = `./../../assets/carTypes/`;
+  carFolder: string = `./../../assets/cars/`;
+  fallbackFolder: string = `./../../assets/fallbackImages/`;
   carType: CarType;
   carsForSelection: Car[];
   allCars: Car[];

@@ -5,11 +5,11 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="8833e489d8da4012b2914013f100253d" Name="Diagram1">
-        <EntityTypeShape EntityType="CarRentalDBModel.Branch" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CarRentalDBModel.Car" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="CarRentalDBModel.CarType" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="CarRentalDBModel.Rental" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="CarRentalDBModel.User" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarRentalDBModel.Branch" Width="1.5" PointX="2.625" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarRentalDBModel.Car" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarRentalDBModel.CarType" Width="1.5" PointX="0.5" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarRentalDBModel.Rental" Width="1.5" PointX="2.625" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarRentalDBModel.User" Width="1.5" PointX="4.75" PointY="1.375" IsExpanded="true" />
         <AssociationConnector Association="CarRentalDBModel.FK__Cars__BranchId__4BAC3F29" ManuallyRouted="false" />
         <AssociationConnector Association="CarRentalDBModel.FK__Cars__TypeId__403A8C7D" ManuallyRouted="false" />
         <AssociationConnector Association="CarRentalDBModel.FK__Rentals__CarId__412EB0B6" ManuallyRouted="false" />
