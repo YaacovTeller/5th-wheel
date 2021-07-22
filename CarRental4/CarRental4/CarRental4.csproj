@@ -94,6 +94,109 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="dist\AngMat\assets\5thWheel6.png" />
+    <Content Include="dist\AngMat\assets\5thWh_line.png" />
+    <Content Include="dist\AngMat\assets\5thWh_line_BW.png" />
+    <Content Include="dist\AngMat\assets\boxster_spyder.jpg" />
+    <Content Include="dist\AngMat\assets\Bugatti_Divo.jpg" />
+    <Content Include="dist\AngMat\assets\Bugatti_Divo_small.png" />
+    <Content Include="dist\AngMat\assets\cars\AstonMartin_cc100-black.jpg" />
+    <Content Include="dist\AngMat\assets\cars\AstonMartin_db11-black.jpg" />
+    <Content Include="dist\AngMat\assets\cars\AstonMartin_db11-blue.jpg" />
+    <Content Include="dist\AngMat\assets\cars\AstonMartin_Vulcan-red.jpg" />
+    <Content Include="dist\AngMat\assets\cars\BMW_i8-orange.jpg" />
+    <Content Include="dist\AngMat\assets\cars\BMW_i8-silver.jpg" />
+    <Content Include="dist\AngMat\assets\cars\BMW_Z4-blue.jpg" />
+    <Content Include="dist\AngMat\assets\cars\BMW_Z4-grey.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Bugatti_Chiron-blue.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Bugatti_Chiron-yellow-and-black.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Bugatti_Divo-black.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Bugatti_Veyron-black.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Bugatti_Veyron-blue-and-black.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Ferrari_Spyder-black.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Ferrari_Spyder-blue.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Ferrari_Spyder-red.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Jaguar_FType-black.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Jaguar_FType-red.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Jaguar_XF-black.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Lamborghini_Aventador-red.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Lamborghini_Huracan-black.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Lamborghini_Huracan-green.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Lexus_LS400-black.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Lexus_LS400-red.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Lincoln_Towncar_StretchLimo-black.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Lincoln_Towncar_StretchLimo-white.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Maserati_GranTurismo-blue.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Maserati_GranTurismo-grey.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Maserati_quattroporte-darkblue.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Maserati_quattroporte-silver.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Porsche_Boxter-grey.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Porsche_GT2-red.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Porsche_Panamera-green.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Rolls-Royce_Ghost-black.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Rolls-Royce_Silver_Seraph-black.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Rolls-Royce_Wraith-blue.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Terradyne_Gurkha-black.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Terradyne_Gurkha-white.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Tesla_modelS-silver.jpg" />
+    <Content Include="dist\AngMat\assets\carTypes\Aston-martin_Logo.png" />
+    <Content Include="dist\AngMat\assets\carTypes\BMW_Logo.png" />
+    <Content Include="dist\AngMat\assets\carTypes\Bugatti-logo.png" />
+    <Content Include="dist\AngMat\assets\carTypes\Ferrari-Logo.png" />
+    <Content Include="dist\AngMat\assets\carTypes\Jaguar_Cars_Logo.png" />
+    <Content Include="dist\AngMat\assets\carTypes\Lamborghini_Logo.png" />
+    <Content Include="dist\AngMat\assets\carTypes\Lexus_logo.png" />
+    <Content Include="dist\AngMat\assets\carTypes\Lincoln_Logo.png" />
+    <Content Include="dist\AngMat\assets\carTypes\Maserati_Logo.jpg" />
+    <Content Include="dist\AngMat\assets\carTypes\Porsche_Logo.png" />
+    <Content Include="dist\AngMat\assets\carTypes\Rolls-Royce_Motor_Cars_Logo.png" />
+    <Content Include="dist\AngMat\assets\carTypes\TERADYNE_Logo.jpeg" />
+    <Content Include="dist\AngMat\assets\carTypes\Tesla-motors_logo.png" />
+    <Content Include="dist\AngMat\assets\enrique-bernoldi.jpg" />
+    <Content Include="dist\AngMat\assets\fallbackImages\5thWheel6.png" />
+    <Content Include="dist\AngMat\assets\fallbackImages\Brand_placeholder.jpg" />
+    <Content Include="dist\AngMat\assets\fallbackImages\Car_placeholder.jpg" />
+    <Content Include="dist\AngMat\assets\Ford Mustang.jpg" />
+    <Content Include="dist\AngMat\assets\icons\5thWheel6.ico" />
+    <Content Include="dist\AngMat\assets\icons\5thWh_line_BW.ico" />
+    <Content Include="dist\AngMat\assets\icons\Bugatti_Divo_small.ico" />
+    <Content Include="dist\AngMat\assets\lamborghini-huracans-mountains.jpg" />
+    <Content Include="dist\AngMat\assets\Maserati.jpg" />
+    <Content Include="dist\AngMat\assets\Porsche_550.jpg" />
+    <Content Include="dist\AngMat\assets\Siva.jpg" />
+    <Content Include="dist\AngMat\assets\users\Ben_Chaimowicz.jpg" />
+    <Content Include="dist\AngMat\assets\users\female.jpg" />
+    <Content Include="dist\AngMat\assets\users\Freidrich_Holz.jpg" />
+    <Content Include="dist\AngMat\assets\users\male.png" />
+    <Content Include="dist\AngMat\assets\users\Slai.jpg" />
+    <Content Include="dist\AngMat\assets\users\Takeshi_Ozai.jpg" />
+    <Content Include="dist\AngMat\assets\users\Thelma_Carpenter.jpg" />
+    <Content Include="dist\AngMat\assets\users\Tomer_Kaiser.jpg" />
+    <Content Include="dist\AngMat\assets\users\Zuz.jpg" />
+    <Content Include="dist\AngMat\favicon.ico" />
+    <Content Include="dist\AngMat\index.html" />
+    <Content Include="dist\AngMat\main-es2015.js" />
+    <Content Include="dist\AngMat\main-es2015.js.map" />
+    <Content Include="dist\AngMat\main-es5.js" />
+    <Content Include="dist\AngMat\main-es5.js.map" />
+    <Content Include="dist\AngMat\polyfills-es2015.js" />
+    <Content Include="dist\AngMat\polyfills-es2015.js.map" />
+    <Content Include="dist\AngMat\polyfills-es5.js" />
+    <Content Include="dist\AngMat\polyfills-es5.js.map" />
+    <Content Include="dist\AngMat\runtime-es2015.js" />
+    <Content Include="dist\AngMat\runtime-es2015.js.map" />
+    <Content Include="dist\AngMat\runtime-es5.js" />
+    <Content Include="dist\AngMat\runtime-es5.js.map" />
+    <Content Include="dist\AngMat\scripts.js" />
+    <Content Include="dist\AngMat\scripts.js.map" />
+    <Content Include="dist\AngMat\styles-es2015.js" />
+    <Content Include="dist\AngMat\styles-es2015.js.map" />
+    <Content Include="dist\AngMat\styles-es5.js" />
+    <Content Include="dist\AngMat\styles-es5.js.map" />
+    <Content Include="dist\AngMat\vendor-es2015.js" />
+    <Content Include="dist\AngMat\vendor-es2015.js.map" />
+    <Content Include="dist\AngMat\vendor-es5.js" />
+    <Content Include="dist\AngMat\vendor-es5.js.map" />
     <Content Include="Global.asax" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -105,7 +208,9 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -159,6 +264,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\5thWheel - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
