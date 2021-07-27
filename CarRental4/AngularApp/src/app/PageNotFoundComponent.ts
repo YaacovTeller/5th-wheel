@@ -11,7 +11,7 @@ import { CarMessage, MessageService } from './services/message.service';
   </mat-card-header>
   <mat-card-content>
     <h1>404 - Page Not Found</h1>
-<h3>5th Wheel contains some useful pages, and this is not one of them</h3><br>
+<h3>5th Wheel contains some useful pages, and this is not one of them!</h3><br>
   </mat-card-content>
 
 </mat-card>
