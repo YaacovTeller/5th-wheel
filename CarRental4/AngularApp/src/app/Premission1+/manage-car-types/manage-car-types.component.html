@@ -1,0 +1,41 @@
+<h2>Manage car models</h2>
+<div class="tableWrapper">
+  <mat-card class="table">
+    <button class="newItemBtn" mat-raised-button color="accent" (click)="openDialog(newType); newCarTypeSwitcher()"> New Type + </button>
+    <table matSort (matSortChange)="sortData($event)">
+      <tr>
+        <th mat-sort-header="CarTypeId">CarType Id</th>
+        <th mat-sort-header="Manufacturer">Manufacturer</th>
+        <th mat-sort-header="Model">Model</th>
+        <th mat-sort-header="PricePerDay">Price Per Day</th>
+        <th mat-sort-header="PriceOverdue">Price Overdue</th>
+        <th mat-sort-header="YearOfManufacture">Manufactured</th>
+        <th mat-sort-header="Transmission">Transmission</th>
+        <th mat-sort-header="PictureUrl">Picture Url</th>
+      </tr>
+      <mat-divider></mat-divider>
+      <tr *ngFor="let car of sortedCarTypes">
+        <td>{{car.CarTypeId}}</td>
+        <td>{{car.Manufacturer}}</td>
+        <td>{{car.Model}}</td>
+        <td>{{car.PricePerDay | currency: 'GBP'}}</td>
+        <td>{{car.PricePerDayOver | currency: 'GBP'}}</td>
+        <td>{{car.YearOfManufacture}}</td>
+        <td>{{car.Transmission}}</td>
+        <td title="{{car.PictureUrl}}">{{car.PictureUrl}}</td>
+        <button mat-raised-button color="primary" (click)="openDialog(car)"> Edit </button>
+        <button mat-raised-button color="accent" (click)="deleteAttempt(car)"> Delete </button>
+      </tr>
+    </table>
+  </mat-card>
+  <mat-card class="sheet" (click)="deleteCheck=false" *ngIf="deleteCheck">
+  </mat-card>
+  <div class="modalAligner">
+    <mat-card class="deleteModal" *ngIf="deleteCheck">
+      <h2>Confirm delete</h2>
+      <p>Do you really want to delete ?</p>
+      <button mat-raised-button color="accent" (click)="delete()"> Confirm </button>
+      <button mat-raised-button (click)="removeDeleteCheck()"> Remove delete check </button>
+    </mat-card>
+  </div>
+ </div>

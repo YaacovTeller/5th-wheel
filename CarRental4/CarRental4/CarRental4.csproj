@@ -49,13 +49,38 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Features, Version=5.0.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Features.5.0.8\lib\net461\Microsoft.AspNetCore.Http.Features.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.Primitives, Version=5.0.0.1, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.5.0.1\lib\net461\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Pipelines, Version=5.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.5.0.1\lib\net461\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.7\lib\net45\System.Web.Cors.dll</HintPath>
     </Reference>
@@ -94,6 +119,100 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="dist\AngMat\assets\5thWheel6.png" />
+    <Content Include="dist\AngMat\assets\5thWh_line.png" />
+    <Content Include="dist\AngMat\assets\5thWh_line_BW.png" />
+    <Content Include="dist\AngMat\assets\boxster_spyder.jpg" />
+    <Content Include="dist\AngMat\assets\Bugatti_Divo.jpg" />
+    <Content Include="dist\AngMat\assets\Bugatti_Divo_small.png" />
+    <Content Include="dist\AngMat\assets\cars\AstonMartin_cc100-black.jpg" />
+    <Content Include="dist\AngMat\assets\cars\AstonMartin_db11-black.jpg" />
+    <Content Include="dist\AngMat\assets\cars\AstonMartin_db11-blue.jpg" />
+    <Content Include="dist\AngMat\assets\cars\AstonMartin_Vulcan-red.jpg" />
+    <Content Include="dist\AngMat\assets\cars\BMW_i8-orange.jpg" />
+    <Content Include="dist\AngMat\assets\cars\BMW_i8-silver.jpg" />
+    <Content Include="dist\AngMat\assets\cars\BMW_Z4-blue.jpg" />
+    <Content Include="dist\AngMat\assets\cars\BMW_Z4-grey.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Bugatti_Chiron-blue.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Bugatti_Chiron-yellow-and-black.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Bugatti_Divo-black.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Bugatti_Veyron-black.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Bugatti_Veyron-blue-and-black.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Ferrari_Spyder-black.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Ferrari_Spyder-blue.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Ferrari_Spyder-red.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Jaguar_FType-black.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Jaguar_FType-red.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Jaguar_XF-black.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Lamborghini_Aventador-red.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Lamborghini_Huracan-black.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Lamborghini_Huracan-green.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Lexus_LS400-black.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Lexus_LS400-red.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Lincoln_Towncar_StretchLimo-black.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Lincoln_Towncar_StretchLimo-white.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Maserati_GranTurismo-blue.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Maserati_GranTurismo-grey.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Maserati_quattroporte-darkblue.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Maserati_quattroporte-silver.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Porsche_Boxter-grey.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Porsche_GT2-red.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Porsche_Panamera-green.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Rolls-Royce_Ghost-black.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Rolls-Royce_Silver_Seraph-black.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Rolls-Royce_Wraith-blue.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Terradyne_Gurkha-black.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Terradyne_Gurkha-white.jpg" />
+    <Content Include="dist\AngMat\assets\cars\Tesla_modelS-silver.jpg" />
+    <Content Include="dist\AngMat\assets\carTypes\Aston-martin_Logo.png" />
+    <Content Include="dist\AngMat\assets\carTypes\BMW_Logo.png" />
+    <Content Include="dist\AngMat\assets\carTypes\Bugatti-logo.png" />
+    <Content Include="dist\AngMat\assets\carTypes\Ferrari-Logo.png" />
+    <Content Include="dist\AngMat\assets\carTypes\Jaguar_Cars_Logo.png" />
+    <Content Include="dist\AngMat\assets\carTypes\Lamborghini_Logo.png" />
+    <Content Include="dist\AngMat\assets\carTypes\Lexus_logo.png" />
+    <Content Include="dist\AngMat\assets\carTypes\Lincoln_Logo.png" />
+    <Content Include="dist\AngMat\assets\carTypes\Maserati_Logo.jpg" />
+    <Content Include="dist\AngMat\assets\carTypes\Porsche_Logo.png" />
+    <Content Include="dist\AngMat\assets\carTypes\Rolls-Royce_Motor_Cars_Logo.png" />
+    <Content Include="dist\AngMat\assets\carTypes\TERADYNE_Logo.jpeg" />
+    <Content Include="dist\AngMat\assets\carTypes\Tesla-motors_logo.png" />
+    <Content Include="dist\AngMat\assets\enrique-bernoldi.jpg" />
+    <Content Include="dist\AngMat\assets\fallbackImages\5thWheel6.png" />
+    <Content Include="dist\AngMat\assets\fallbackImages\Brand_placeholder.jpg" />
+    <Content Include="dist\AngMat\assets\fallbackImages\Car_placeholder.jpg" />
+    <Content Include="dist\AngMat\assets\Ford Mustang.jpg" />
+    <Content Include="dist\AngMat\assets\icons\5thWheel6.ico" />
+    <Content Include="dist\AngMat\assets\icons\5thWh_line_BW.ico" />
+    <Content Include="dist\AngMat\assets\icons\Bugatti_Divo_small.ico" />
+    <Content Include="dist\AngMat\assets\lamborghini-huracans-mountains.jpg" />
+    <Content Include="dist\AngMat\assets\Maserati.jpg" />
+    <Content Include="dist\AngMat\assets\Porsche_550.jpg" />
+    <Content Include="dist\AngMat\assets\Siva.jpg" />
+    <Content Include="dist\AngMat\assets\users\Ben_Chaimowicz.jpg" />
+    <Content Include="dist\AngMat\assets\users\female.jpg" />
+    <Content Include="dist\AngMat\assets\users\Freidrich_Holz.jpg" />
+    <Content Include="dist\AngMat\assets\users\male.png" />
+    <Content Include="dist\AngMat\assets\users\Slai.jpg" />
+    <Content Include="dist\AngMat\assets\users\Takeshi_Ozai.jpg" />
+    <Content Include="dist\AngMat\assets\users\Thelma_Carpenter.jpg" />
+    <Content Include="dist\AngMat\assets\users\Tomer_Kaiser.jpg" />
+    <Content Include="dist\AngMat\assets\users\Zuz.jpg" />
+    <Content Include="dist\AngMat\favicon.ico" />
+    <Content Include="dist\AngMat\index.html" />
+    <Content Include="dist\AngMat\main-es2015.38e7dbef2fbcbe661397.js" />
+    <Content Include="dist\AngMat\main-es2015.38e7dbef2fbcbe661397.js.LICENSE.txt" />
+    <Content Include="dist\AngMat\main-es5.2e1d5698d12ee8f43367.js" />
+    <Content Include="dist\AngMat\main-es5.2e1d5698d12ee8f43367.js.LICENSE.txt" />
+    <Content Include="dist\AngMat\polyfills-es2015.be8082839754cb60c334.js" />
+    <Content Include="dist\AngMat\polyfills-es2015.be8082839754cb60c334.js.LICENSE.txt" />
+    <Content Include="dist\AngMat\polyfills-es5.ff0cd4ba47c34133c793.js" />
+    <Content Include="dist\AngMat\polyfills-es5.ff0cd4ba47c34133c793.js.LICENSE.txt" />
+    <Content Include="dist\AngMat\runtime-es2015.88671e7ce7a86e6f30b2.js" />
+    <Content Include="dist\AngMat\runtime-es5.cae7bf7cadd9e6c1784e.js" />
+    <Content Include="dist\AngMat\scripts.859e64cef1ef944f8beb.js" />
+    <Content Include="dist\AngMat\scripts.859e64cef1ef944f8beb.js.LICENSE.txt" />
+    <Content Include="dist\AngMat\styles.4e88da2a642d83c39d2b.css" />
     <Content Include="Global.asax" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -105,10 +224,13 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\LoginData.cs" />
     <Compile Include="Security\Authentication.cs" />
     <Compile Include="Security\UserSecurity.cs" />
@@ -159,6 +281,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\5thWheel - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

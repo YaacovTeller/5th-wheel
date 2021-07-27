@@ -1,0 +1,8 @@
+  <mat-card class="messageFrame" *ngIf="display">
+  <a (click)="hide()">&times;</a>
+  <i class="{{mainIcon}} fa-6x"></i>
+  <div class="message">
+    <h1>{{title}} <i class="{{icon}}"></i> </h1>
+    <p title="{{tooltip}}">{{body}}</p>
+  </div>
+</mat-card>

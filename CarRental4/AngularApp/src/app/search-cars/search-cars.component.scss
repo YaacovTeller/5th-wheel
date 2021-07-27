@@ -1,0 +1,89 @@
+.grid-container {
+  margin: 20px;
+}
+h1{
+  text-align:center;
+}
+.mat-card-title{
+  font-weight:200;
+}
+.carCardContainer h4 {
+  margin-top: 0;
+}
+
+.imageContainer {
+  min-height: 385px;
+}
+
+.carCardContainer {
+  margin-top: 10px;
+  margin-left: 10px;
+  display: flex;
+  width: 99%;
+  flex-wrap: wrap;
+  // justify-content: flex-start;
+  justify-content: space-around;
+}
+
+.carCardContainer img {
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: 5px;
+}
+.carCard {
+  text-align: center;
+  width: 215px;
+ // height: 340px;
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
+ // position: relative;
+}
+.flex {
+  display: flex;
+  justify-content: center;
+}
+.carCard mat-card-content{
+ // position: absolute;
+  bottom: 5px;
+  width: 100%;
+}
+.carTypeImgSize {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.carImgSize {
+  display: flex;
+  align-items: center;
+  //  justify-content: center;
+  height: 150px;
+}
+.twoLine{
+  height: 60px;
+}
+.inline {
+  display: inline-block;
+}
+.lftmrgn {
+  margin-left: 10px;
+}
+.tpmrgn{
+  margin-top: 10px;
+}
+mat-card button {
+  margin-top: 10px;
+  transition: all .2s ease-in-out;
+}
+mat-card button:hover {
+  transform: scale(1.1)
+}
+.disabledCursor {
+  cursor: not-allowed !important;
+  opacity: 0.3;
+}
+
+.disabledEvents {
+  pointer-events: none !important;
+}

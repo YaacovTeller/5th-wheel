@@ -1,0 +1,19 @@
+<!--<mat-card ><br /><br />
+GREAT BIG CARD<br /><br />
+</mat-card><br />-->
+<div class="footer" *ngIf="carsOfInterest.length>0">
+  <mat-card class="footerTitle">Recently viewed:
+     <button mat-button (click)="toggleHide()">(toggle on/off)
+        <span *ngIf="displayWanted">V</span>
+        <span style="font-size: 25px" *ngIf="!displayWanted">^</span>
+     </button>
+  </mat-card><br />
+  <div *ngIf="displayWanted">
+  <mat-card class="footerCardPic" *ngFor="let car of carsOfInterest">
+    <img src="{{carFolder + car.PictureUrl}}" /><br />
+    {{car.CarType.Manufacturer}}<br />{{car.CarType.Model}}
+
+  </mat-card>
+    </div>
+</div>
+

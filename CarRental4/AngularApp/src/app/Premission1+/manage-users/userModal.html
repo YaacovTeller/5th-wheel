@@ -1,0 +1,56 @@
+<mat-card class="box">
+  <div class="container">
+    <mat-form-field>
+      <input matInput autocomplete="off" [(ngModel)]="editedUser.Fullname" placeholder="Enter name">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput autocomplete="off" [(ngModel)]="editedUser.UserName"  placeholder="Enter user name">
+    </mat-form-field>
+    <mat-form-field hintLabel="Requires 9 digits">
+      <input matInput autocomplete="off" #passport [(ngModel)]="editedUser.PassportNumber"  maxlength="9" minlength="9" placeholder="Enter passport number">
+      <mat-hint align="end">{{passport.value?.length || 0}}/9</mat-hint>
+    </mat-form-field>
+    <br>
+    <br>
+    <mat-form-field>
+      <input matInput autocomplete="off" placeholder="Enter password" [(ngModel)]="editedUser.Password" [type]="hide ? 'password' : 'text'">
+      <a mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </a>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-select autocomplete="off" [(ngModel)]="editedUser.Gender" placeholder="Select gender">
+        <mat-option disabled value="">Gender:</mat-option>
+        <mat-option value="male"><span><i class="fa fa-mars fa-lg"></i></span>Male</mat-option>
+        <mat-option value="female"><span><i class="fa fa-venus fa-lg"></i></span>Female</mat-option>
+        <mat-option value="both"><span id="spn"><i class="fa fa-venus-mars fa-lg"></i></span>Both</mat-option>
+        <mat-option value="neither"><span><i class="fa fa-neuter fa-lg"></i></span>Neither</mat-option>
+        <mat-option value="undecided"><span><i class="fa fa-question fa-lg"></i></span>Undecided</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input autocomplete="off" matInput placeholder="Email" [(ngModel)]="editedUser.Email" >
+    </mat-form-field>
+    <br>
+    <mat-divider></mat-divider>
+    <br>
+    <mat-form-field>
+      <input autocomplete="off" matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" [(ngModel)]="editedUser.Birthdate" placeholder="Enter birthdate">
+      <mat-hint>optional</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input autocomplete="off" matInput [(ngModel)]="editedUser.PictureUrl" placeholder="Enter url">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput #permiss autocomplete="off" maxlength="1" pattern="/[0-2]/g" [(ngModel)]="editedUser.Permission" placeholder="Permission: (0, 1 or 2)">
+      <mat-hint>{{permiss.value? (permiss.value | permission):"-"}}</mat-hint>
+    </mat-form-field>
+  </div>
+  <br />
+  <button mat-raised-button color="accent" (click)="save()"> Save </button>
+</mat-card>

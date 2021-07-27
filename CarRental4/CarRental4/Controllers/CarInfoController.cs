@@ -8,12 +8,20 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Http.Results;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace CarRental4.Controllers
 {
     
     public class CarInfoController : ApiController
     {
+        [AllowAnonymous]
+        [HttpGet]
+        public string Getstr()
+        {
+            return "HelloWorld";
+        }
         [Authentication]
         [HttpDelete]
         public HttpResponseMessage DeleteCars(int id)
@@ -48,6 +56,16 @@ namespace CarRental4.Controllers
             }
         }
         [HttpGet]
+        [Route("api/CarInfo/FindCar/{id}")]
+        public JsonResult<Car> FindCar(int id)
+        {
+            using (CarRentalDBEntities entities = new CarRentalDBEntities())
+            {
+                var a = entities.Cars.Include(c => c.Branch).Include(c => c.CarType).FirstOrDefault(c => c.CarId == id);
+                return Json(a as Car);
+            }
+        }
+        [HttpGet]
         public JsonResult<CarType> FindCarTypes(int id)
         {
             using (CarRentalDBEntities entities = new CarRentalDBEntities())
@@ -58,7 +76,7 @@ namespace CarRental4.Controllers
         }
         [HttpGet]
         public IEnumerable<Car> GetCars()
-        {
+        { 
             using (CarRentalDBEntities entities = new CarRentalDBEntities())
             {
                 //     entities.Configuration.LazyLoadingEnabled = false;
