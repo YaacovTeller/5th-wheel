@@ -16,7 +16,7 @@ import { CarMessage, MessageService } from './services/message.service';
 
 </mat-card>
 </div>
-<i class="fas fa-car-side fa-3x anim1"></i><i class="fas fa-car-side fa-3x anim2"></i><i class="fas fa-truck-monster fa-3x anim3"></i>`
+<i class="fas fa-car-side fa-3x anim1"></i><i class="fas fa-truck-monster fa-3x anim2"></i><i class="fas fa-truck-monster fa-3x anim3"></i>`
   ,
   styleUrls: ['./app.component.scss']
 })

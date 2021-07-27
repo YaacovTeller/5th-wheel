@@ -198,21 +198,6 @@
     <Content Include="dist\AngMat\assets\users\Thelma_Carpenter.jpg" />
     <Content Include="dist\AngMat\assets\users\Tomer_Kaiser.jpg" />
     <Content Include="dist\AngMat\assets\users\Zuz.jpg" />
-    <Content Include="dist\AngMat\favicon.ico" />
-    <Content Include="dist\AngMat\index.html" />
-    <Content Include="dist\AngMat\main-es2015.38e7dbef2fbcbe661397.js" />
-    <Content Include="dist\AngMat\main-es2015.38e7dbef2fbcbe661397.js.LICENSE.txt" />
-    <Content Include="dist\AngMat\main-es5.2e1d5698d12ee8f43367.js" />
-    <Content Include="dist\AngMat\main-es5.2e1d5698d12ee8f43367.js.LICENSE.txt" />
-    <Content Include="dist\AngMat\polyfills-es2015.be8082839754cb60c334.js" />
-    <Content Include="dist\AngMat\polyfills-es2015.be8082839754cb60c334.js.LICENSE.txt" />
-    <Content Include="dist\AngMat\polyfills-es5.ff0cd4ba47c34133c793.js" />
-    <Content Include="dist\AngMat\polyfills-es5.ff0cd4ba47c34133c793.js.LICENSE.txt" />
-    <Content Include="dist\AngMat\runtime-es2015.88671e7ce7a86e6f30b2.js" />
-    <Content Include="dist\AngMat\runtime-es5.cae7bf7cadd9e6c1784e.js" />
-    <Content Include="dist\AngMat\scripts.859e64cef1ef944f8beb.js" />
-    <Content Include="dist\AngMat\scripts.859e64cef1ef944f8beb.js.LICENSE.txt" />
-    <Content Include="dist\AngMat\styles.4e88da2a642d83c39d2b.css" />
     <Content Include="Global.asax" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

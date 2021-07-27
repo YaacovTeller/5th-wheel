@@ -75,6 +75,7 @@ export class ManageCarTypesComponent implements OnInit {
         .subscribe(
           data => {
             this.messageService.specificMessage("Editing carType...", `${data}`, 'success')
+            this.summonCarTypes();
           },
           //error => {
           //  //var m: CarMessage = new CarMessage("Error!", `${error}`, 'error');
