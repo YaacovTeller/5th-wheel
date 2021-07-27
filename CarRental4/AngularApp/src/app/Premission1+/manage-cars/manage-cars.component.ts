@@ -55,29 +55,27 @@ export class ManageCarsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.returnedDate = result;
-        this.saveToDatabase(this.returnedDate)
+        this.saveToDatabase(result)
         this.newCarSwitch = false;
       }
       else {
-        var m: CarMessage = new CarMessage("No edit done", `No input`);
-        this.messageService.changeMessage(m)
+        this.messageService.specificMessage("No edit done", `No input`, 'info');
       }
     });
   }
+
   saveToDatabase(recievedCar) {
     console.log(recievedCar)
+    if (recievedCar.Pic) {
+      this.carService.uploadImage(recievedCar.Pic)
+    }
     if (this.newCarSwitch == true) {
       this.carService.newCar(recievedCar)
         .pipe(first())
         .subscribe(
           data => {
-            var m: CarMessage = new CarMessage("Creating car...", `${data}`);
-            this.messageService.changeMessage(m)
-          },
-          error => {
-            var m: CarMessage = new CarMessage("Error!", `${error}`);
-            this.messageService.changeMessage(m)
+             this.messageService.specificMessage("Creating car...", `${data}`);
+            this.summonCars();
           }
       );
     }
@@ -86,12 +84,8 @@ export class ManageCarsComponent implements OnInit {
         .pipe(first())
         .subscribe(
           data => {
-            var m: CarMessage = new CarMessage("Editing car...", `${data}`);
-            this.messageService.changeMessage(m)
-          },
-          error => {
-            var m: CarMessage = new CarMessage("Error!", `${error}`);
-            this.messageService.changeMessage(m)
+            this.messageService.specificMessage("Editing car...", `${data}`);
+            this.summonCars();
           }
         );
     }
@@ -99,7 +93,6 @@ export class ManageCarsComponent implements OnInit {
   summonCars() {
     this.carService.getCars().subscribe(cars => {
       this.sortedCars = this.cars = cars
-  //    console.log(this.sortedCars)
       console.log(/*JSON.stringify(this.sortedCars, null, 2)*/)
     })
   }
@@ -112,8 +105,7 @@ export class ManageCarsComponent implements OnInit {
   }
   removeDeleteCheck() {
     this.deleteCheckOverride = true;
-    var m: CarMessage = new CarMessage("Warning", `Delete responsibly`);
-    this.messageService.changeMessage(m)
+    this.messageService.genericWarning(`Delete responsibly`)
     this.deleteCheck = false;
   }
 
@@ -124,13 +116,12 @@ export class ManageCarsComponent implements OnInit {
     this.carService.deleteCars(id)
       .subscribe(res => {
         this.summonCars();
-        var m: CarMessage = new CarMessage("Success", `Car no. ${id} was deleted`);
-        this.messageService.changeMessage(m)
+        this.messageService.genericSuccess(`Car no. ${id} was deleted`);
+        this.summonCars();
       }, (err) => {
         console.log(err);
    //     this.isLoadingResults = false;
-        var m: CarMessage = new CarMessage("Error!", `Car no. ${id} was NOT deleted`);
-        this.messageService.changeMessage(m)
+          this.messageService.genericError(`Car no. ${id} was NOT deleted`)
       }
     );
     this.deleteCheck = false;

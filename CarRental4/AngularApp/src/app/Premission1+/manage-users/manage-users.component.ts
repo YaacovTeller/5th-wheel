@@ -54,10 +54,8 @@ export class ManageUsersComponent implements OnInit {
         this.saveToDatabase(this.returnedDate);
       }
       else {
-        var m: CarMessage = new CarMessage("No edit done", `No input`);
-        this.messageService.changeMessage(m)
+        this.messageService.specificMessage("No edit done", `No input`, 'info');
       }
-  
     });
   }
   saveToDatabase(user) {
@@ -65,13 +63,9 @@ export class ManageUsersComponent implements OnInit {
   .pipe(first())
   .subscribe(
     data => {
-      var m: CarMessage = new CarMessage("Editing user...", `${data}`);
-      this.messageService.changeMessage(m)
-    },
-    error => {
-      var m: CarMessage = new CarMessage("Error!", `${error}`);
-      this.messageService.changeMessage(m)
-      });
+      this.messageService.specificMessage("Editing user...", `${data}`);
+      this.summonUsers();
+    })
   }
 
   summonUsers() {
@@ -90,8 +84,7 @@ export class ManageUsersComponent implements OnInit {
   }
   removeDeleteCheck() {
     this.deleteCheckOverride = true;
-    var m: CarMessage = new CarMessage("Warning", `Delete responsibly`);
-    this.messageService.changeMessage(m)
+    this.messageService.genericWarning(`Delete responsibly`);
     this.deleteCheck = false;
   }
 
@@ -106,18 +99,16 @@ export class ManageUsersComponent implements OnInit {
       .subscribe(res => {
         this.summonUsers();
       //  button.parentElement.style.display = "none";
-        var m: CarMessage = new CarMessage("Success", `User no. ${id} was deleted`);
-        this.messageService.changeMessage(m)
+        this.messageService.genericSuccess(`User no. ${id} was deleted`)
       }, (err) => {
         console.log(err);
-        //     this.isLoadingResults = false;
-        var m: CarMessage = new CarMessage("Error!", `User no. ${id} was NOT deleted`);
-        this.messageService.changeMessage(m)
+          //     this.isLoadingResults = false;
+          this.messageService.genericError(`User no. ${id} was NOT deleted`);
+       //   throw err
       }
     );
     this.deleteCheck = false;
   }
-
 
   //Rentals table sort function
   sortData(sort: Sort) {

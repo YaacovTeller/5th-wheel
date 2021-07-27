@@ -11,3 +11,15 @@ export class Car {
   CarNumber: number;
   Branch: Branch;
 }
+
+export class CarDisplayDTO {
+  CarId: number;
+  CarTypeId: number;
+  Mileage: number;
+  PictureUrl: string;
+  FitForRental: boolean;
+  Available: boolean;
+  CarNumber: number;
+  BranchId: number;
+  Pic?: File;
+}

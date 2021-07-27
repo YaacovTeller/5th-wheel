@@ -15,20 +15,9 @@ td {
   max-width: 1010px;
   overflow-x: auto;
 }
-.cellDiv div {
-  display: inline-block;
-  max-width: 50px;
-}
-.column {
-  display:inline-block;
-  width: 90px;
-}
-.column input {
-  text-align: center;
-}
-.tableCard {
-  padding-top: 0;
-  padding-bottom: 0;
+
+.newItemBtn{
+    margin-bottom: 7px;
 }
 button {
   margin-right: 10px

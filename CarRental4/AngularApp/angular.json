@@ -17,6 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            // "outputPath": "../CarRental4/dist/AngMat",
             "outputPath": "../CarRental4/dist/AngMat",
             "index": "src/index.html",
             "main": "src/main.ts",

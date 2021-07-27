@@ -59,8 +59,7 @@ export class ManageReturnsComponent implements OnInit {
         this.saveToDatabase(this.recievedRental)
       }
       else {
-        var m: CarMessage = new CarMessage("No edit done", `No input`);
-        this.messageService.changeMessage(m)
+        this.messageService.specificMessage("No edit done", `No input`, 'info');
       }
     });
   }
@@ -70,13 +69,8 @@ export class ManageReturnsComponent implements OnInit {
     .pipe(first())
       .subscribe(
         data => {
-          var m: CarMessage = new CarMessage("Returning car...", `${data}`);
-          this.messageService.changeMessage(m)
-        },
-        error => {
-          var m: CarMessage = new CarMessage("Error!", `${error}`);
-          this.messageService.changeMessage(m)
-          }
+          this.messageService.specificMessage("Returning car...", `${data}`);
+        }
     );
     //MAKE CAR AVAILABLE AGAIN
     this.car = this.cars.find(c => c.CarId == recievedRental.Car.CarId)
@@ -87,10 +81,6 @@ export class ManageReturnsComponent implements OnInit {
         data => {
           //var m: CarMessage = new CarMessage("Returning car...", `${data}`);
           //this.messageService.changeMessage(m)
-        },
-        error => {
-          var m: CarMessage = new CarMessage("Error!", `${error}`);
-          this.messageService.changeMessage(m)
         }
       );
   }

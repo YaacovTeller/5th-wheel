@@ -16,6 +16,7 @@ namespace CarRental4.Controllers
     
     public class CarInfoController : ApiController
     {
+        [AllowAnonymous]
         [HttpGet]
         public string Getstr()
         {
@@ -75,7 +76,7 @@ namespace CarRental4.Controllers
         }
         [HttpGet]
         public IEnumerable<Car> GetCars()
-        {
+        { 
             using (CarRentalDBEntities entities = new CarRentalDBEntities())
             {
                 //     entities.Configuration.LazyLoadingEnabled = false;

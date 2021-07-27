@@ -35,6 +35,8 @@
   <br />
   <mat-form-field>
     <input matInput autocomplete="off" [(ngModel)]="editedCar.PictureUrl" placeholder="PictureUrl">
+    <label for="fileSelect">Choose File</label>
+    <input id="fileSelect" style="width: inherit" type="file" (change)="handlePicSelect($event.target.files)">
   </mat-form-field>
   <br />
   <button mat-raised-button color="accent" (click)="save()"> Save </button>

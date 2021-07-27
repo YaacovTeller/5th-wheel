@@ -33,7 +33,7 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <img class="logo_nav" type=file src=".\..\..\assets\5thWh_line_BW.png" />
-      <div class="link" mat-list-item routerLink="/home" routerLinkActive="active"><div class="iconbox"><i class="fa fa-home fa-lg"></i></div><label *ngIf="drawer.mode == 'side'">QHome</label></div>
+      <div class="link" mat-list-item routerLink="/home" routerLinkActive="active"><div class="iconbox"><i class="fa fa-home fa-lg"></i></div><label *ngIf="drawer.mode == 'side'">Home</label></div>
       <div class="link nudge" mat-list-item routerLink="/search"><div class="iconbox"><i class="fas fa-search"></i></div><label *ngIf="drawer.mode == 'side'">Search</label></div>
       <div class="link" mat-list-item routerLink="/rentals" [class.disabled]="loggedIn ? null : true"><div class="iconbox"><i class="fa fa-car fa-lg"></i></div><label *ngIf="drawer.mode == 'side'">Rentals</label></div>
       <div class="link nudge" mat-list-item routerLink="/checkout" [class.disabled]="loggedIn ? null : true"><div class="iconbox"><i class="fas fa-cash-register fa-lg"></i></div><label *ngIf="drawer.mode == 'side'">Checkout</label></div>

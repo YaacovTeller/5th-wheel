@@ -75,8 +75,7 @@
     <span *ngIf="AllCarsView">Switch to MODELS view</span></button>
   </mat-card>
 </div>
-<!--LOADING SPINNER-->
-<div class="flex"><mat-spinner *ngIf="!displayTypes" color="warn"></mat-spinner></div>
+<div class="flex"><mat-spinner *ngIf="loading" color="warn"></mat-spinner></div>
 
 <div *ngIf="!AllCarsView" class="carCardContainer carTypeCardContainer">
   <mat-card class="carCard" *ngFor="let car of displayTypes">
@@ -84,9 +83,9 @@
         <h4>{{car.Manufacturer}} {{car.Model}} {{car.Id}}</h4>
       </mat-card-title>
 
-    <div class="carTypeImgSize">
-      <img src="{{carTypeFolder + car.PictureUrl}}" onerror= "this.src = ''" alt="Car pic">
-    </div>
+      <div class="carTypeImgSize">
+        <img #TypeImg src="{{carTypeFolder + car.PictureUrl}}" (error)="setDefaultPic(TypeImg)" alt="Type"><!--onerror="this.src='./../../assets/fallbackImages/BrandName.jpg'"-->
+      </div>
 
     <mat-card-content>
       Costs {{car.PricePerDay | currency: 'GBP'}} per day<br>
@@ -102,7 +101,7 @@
         <div>{{car.CarType.Manufacturer}}<br>{{car.CarType.Model}}</div>
       </mat-card-title>
       <div class="carImgSize">
-        <img src="{{carFolder + car.PictureUrl}}" alt="Car pic" title="{{car.CarType.Manufacturer}} {{car.CarType.Model}}">
+        <img #CarImg src="{{carFolder + car.PictureUrl}}" (error)="setDefaultPic(CarImg)" alt="Car" title="{{car.CarType.Manufacturer}} {{car.CarType.Model}}">
       </div>
     <mat-card-content>
       <b>Mileage:</b> {{car.Mileage}}<br>

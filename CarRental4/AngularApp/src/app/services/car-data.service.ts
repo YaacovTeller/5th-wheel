@@ -7,6 +7,7 @@ import { tap, catchError } from 'rxjs/operators';
 import { error } from '@angular/compiler/src/util';
 import { HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment'
+import { log } from 'console';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -25,9 +26,15 @@ export class CarDataService {
 
   getCarTypes(): Observable<CarType[]> {
     return this.client.get<CarType[]>(this.Url + "CarInfo/GetCarTypes", httpOptions)
-      .pipe(tap(data => console.log(/*data*/)),
-        //errors
-    );
+      .pipe(tap(data => console.log(data),
+       err => console.log('HTTP Error', err)
+    ));
+  }
+  getstring(): Observable<string> {
+    return this.client.get<string>(this.Url + "CarInfo/Getstr")
+      .pipe(tap(data => console.log(data),
+        err => console.log('HTTP Error', err)
+      ))
   }
   findCarTypes(id: number): Observable<CarType> {
     return this.client.get<CarType>(this.Url + "CarInfo/FindCarTypes?id=" + id)
@@ -67,6 +74,27 @@ export class CarDataService {
   changeCarType(carType: CarType) {
     this.carTypeDelivery.next(carType)
   }
+
+  //uploadImage(image) {
+  //  return this.client.post<File>(this.Url + "Image/UploadImage", image)
+  //}
+  uploadImage(image: File) {
+    const formData: FormData = new FormData();
+    formData.append('fileKey', image, image.name);
+    //this.getstring().subscribe(
+    //  res => console.log('str response', res),
+    //  err => console.log('str Error', err),
+    //  () => console.log('str request completed.')
+    //);
+
+    return this.client.post<File>(this.Url + "Image/UploadImage", image)
+      .subscribe(
+        res => console.log('UploadImage response', res),
+        err => console.log('UploadImage Error', err),
+        () => console.log('UploadImage request completed.')
+    );
+  }
+
   editCar(car: Car) {
     return this.client.put<Car>(this.Url + "CarInfo/PutCars", car)
       .pipe(tap(data => console.log(/*JSON.stringify(data, null, 2)*/)),

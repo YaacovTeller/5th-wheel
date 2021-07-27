@@ -47,17 +47,15 @@ export class RentalsComponent implements OnInit {
        //   console.log('ngOninit after getCarType() ' + JSON.stringify(this.carType, null, 2));
     this.getCarType().subscribe(_ => {  ;
       error => {
-        console.log('problem', error)
-        var m: CarMessage = new CarMessage("Error!", `CarTypes were not imported`);
-        this.messageService.changeMessage(m)
+        this.messageService.genericError(`CarTypes were not imported`)
+     //   throw error
       }
     });
    
     this.getCars().subscribe(_ => {  ;
       error => {
-        console.log('problem', error)
-        var m: CarMessage = new CarMessage("Error!", `Cars were not imported`);
-        this.messageService.changeMessage(m)
+        this.messageService.genericError(`Cars were not imported`)
+      //  throw error
       }
       if (this.carType) {
         this.carsForSelection = this.allCars.filter(c => c.CarType.CarTypeId == this.carType.CarTypeId)
@@ -68,9 +66,11 @@ export class RentalsComponent implements OnInit {
       if (this.loggedUser) {
         this.assignusersRentals()
         error => {
-          console.log('problem', error)
-          var m: CarMessage = new CarMessage("Error!", `Rentals were not imported`);
-          this.messageService.changeMessage(m)
+          //console.log('problem', error)
+          //var m: CarMessage = new CarMessage("Error!", `Rentals were not imported`);
+          //this.messageService.changeMessage(m)
+          this.messageService.genericError(`Rentals were not imported`)
+       //   throw error
         }
         }
 

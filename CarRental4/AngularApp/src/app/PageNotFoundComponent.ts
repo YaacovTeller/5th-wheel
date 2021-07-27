@@ -24,8 +24,7 @@ export class PageNotFoundComponent implements OnInit {
 
   constructor(private messageService: MessageService) {}
   ngOnInit() {
-    var m: CarMessage = new CarMessage("Oops!", `check that Url`);
-    this.messageService.changeMessage(m)
+    this.messageService.specificMessage("Oops!", `check that Url`,'warn');
   }
 }
 

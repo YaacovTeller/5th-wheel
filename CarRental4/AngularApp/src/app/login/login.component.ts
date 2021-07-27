@@ -42,7 +42,6 @@ userForm: FormGroup;
 usernameFormControl = new FormControl('', [Validators.required,]);
 passwordFormControl = new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(15)]);
 
-
   ngOnInit() {
     this.userService.swtch.subscribe(swtch => this.loggedIn = swtch)
 
@@ -69,8 +68,7 @@ passwordFormControl = new FormControl('', [Validators.required, Validators.minLe
 
   onSubmit() {
     if (this.userForm.invalid) {
-      var m: CarMessage = new CarMessage("Login failed!", `input was invalid`);
-      this.messageService.changeMessage(m)
+      this.messageService.specificMessage("Login failed!", `input was invalid`, 'warn');
       return;
     }
     if (this.userForm.valid) {
@@ -115,8 +113,7 @@ passwordFormControl = new FormControl('', [Validators.required, Validators.minLe
     clearInterval(this.logCheck);
   }
   throwError() {
-    var m: CarMessage = new CarMessage("Login failed!", `password or user name are incorrect`);
-    this.messageService.changeMessage(m)
+    this.messageService.specificMessage("Login failed!", `password or user name are incorrect`, 'warn');
   }
   successfulLogin() {
   //  debugger
@@ -131,8 +128,7 @@ passwordFormControl = new FormControl('', [Validators.required, Validators.minLe
       //this.router.navigateByUrl('/rentals');
       this.userService.Servicelogin(true, this.loggedUser)
       var _this = this;
-      var m: CarMessage = new CarMessage("Login succeeded!", `hello ${_this.loggedUser.UserName}!`);
-      this.messageService.changeMessage(m)
+      this.messageService.specificMessage("Login succeeded!", `hello ${_this.loggedUser.UserName}!`, 'success');
       localStorage.setItem('currentUser', JSON.stringify(_this.loggedUser));
       let a = JSON.parse(localStorage.getItem('currentUser'));
       console.log(a)

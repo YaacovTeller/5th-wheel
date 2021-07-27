@@ -1,11 +1,13 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
+import { FAIconClasses } from '../app/FAIcons';
 
 export const environment = {
   production: false,
   Url: "http://localhost:64825/api/",
   greeting: `I, mailChimp, will oversee development`,
+  mainIcon: FAIconClasses.chimp
 };
 
 /*

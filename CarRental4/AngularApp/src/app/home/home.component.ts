@@ -12,8 +12,7 @@ export class HomeComponent implements OnInit {
   constructor(private messageService: MessageService) { }
 
   ngOnInit() {
-    var m: CarMessage = new CarMessage("Welcome!", environment.greeting);
-    this.messageService.changeMessage(m)
+    this.messageService.specificMessage("Welcome!", environment.greeting )
   }
   assets: string = `./../../assets/`;
   logo: string = `5thWheel6.png`;

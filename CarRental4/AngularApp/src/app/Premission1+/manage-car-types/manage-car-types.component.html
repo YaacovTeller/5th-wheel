@@ -1,6 +1,7 @@
 <h2>Manage car models</h2>
 <div class="tableWrapper">
   <mat-card class="table">
+    <button class="newItemBtn" mat-raised-button color="accent" (click)="openDialog(newType); newCarTypeSwitcher()"> New Type + </button>
     <table matSort (matSortChange)="sortData($event)">
       <tr>
         <th mat-sort-header="CarTypeId">CarType Id</th>
@@ -37,5 +38,4 @@
       <button mat-raised-button (click)="removeDeleteCheck()"> Remove delete check </button>
     </mat-card>
   </div>
-  <button mat-raised-button color="accent" (click)="openDialog(newType); newCarTypeSwitcher()"> New Type + </button>
  </div>

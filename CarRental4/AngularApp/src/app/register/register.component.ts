@@ -50,8 +50,7 @@ export class RegisterComponent {
 
   onSubmit(){
     if (this.userForm.invalid) {
-      var m: CarMessage = new CarMessage("Registration failed!", `input was invalid`);
-      this.messageService.changeMessage(m)
+      this.messageService.specificMessage("Registration failed!", `input was invalid`);
       return;
   }
     if (this.userForm.valid) {
@@ -61,8 +60,7 @@ export class RegisterComponent {
       .pipe(first())
       .subscribe(
           data => {
-            var m: CarMessage = new CarMessage("Registration Succeeded!", `Welcome to the database!`);
-            this.messageService.changeMessage(m)
+            this.messageService.specificMessage("Registration Succeeded!", `Welcome to the database!`);
             this.router.navigate(['/login']);
             setTimeout(() => this.userForm.reset(), 1000);
           },
@@ -71,12 +69,10 @@ export class RegisterComponent {
           //       this.loading = false;
           //}
           if (error.status == 409) {
-            var m: CarMessage = new CarMessage("Duplicate user", `Registration failed with ${error.status}, user name already exists.`);
-            this.messageService.changeMessage(m)
+            this.messageService.specificMessage("Duplicate user", `Registration failed with ${error.status}, user name already exists.`);
           }
           else {
-            var m: CarMessage = new CarMessage("Error", `Registration failed with ${error.status}`);
-            this.messageService.changeMessage(m)
+            this.messageService.specificMessage("Error", `Registration failed with ${error.status}`);
           }
           });
     }

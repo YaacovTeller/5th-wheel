@@ -48,25 +48,24 @@ export class ManageCarTypesComponent implements OnInit {
         this.saveToDatabase(this.returnedData)
       }
       else {
-        var m: CarMessage = new CarMessage("No edit done", `No input`);
-        this.messageService.changeMessage(m)
+        this.messageService.specificMessage("No edit done", `No input`, 'info');
       }
     });
   }
   saveToDatabase(recievedCar) {
-    console.log(recievedCar)
+    let str = this.carService.getstring();
+    console.log(str)
     if (this.newTypeSwitch == true) {
       this.carService.newCarType(recievedCar)
         .pipe(first())
         .subscribe(
           data => {
-            var m: CarMessage = new CarMessage("Creating carType...", `${data}`);
-            this.messageService.changeMessage(m)
+            this.messageService.specificMessage("Creating carType...", `${data}`, 'success')
+            this.summonCarTypes();
           },
-          error => {
-            var m: CarMessage = new CarMessage("Error!", `${error}`);
-            this.messageService.changeMessage(m)
-          }
+          //error => {
+          //  this.messageService.genericError(error)
+          //}
       );
       this.newTypeSwitch = false;
     }
@@ -75,13 +74,12 @@ export class ManageCarTypesComponent implements OnInit {
         .pipe(first())
         .subscribe(
           data => {
-            var m: CarMessage = new CarMessage("Editing carType...", `${data}`);
-            this.messageService.changeMessage(m)
+            this.messageService.specificMessage("Editing carType...", `${data}`, 'success')
           },
-          error => {
-            var m: CarMessage = new CarMessage("Error!", `${error}`);
-            this.messageService.changeMessage(m)
-          }
+          //error => {
+          //  //var m: CarMessage = new CarMessage("Error!", `${error}`, 'error');
+          //  //this.messageService.changeMessage(m)
+          //}
         );
     }
   }
@@ -100,8 +98,7 @@ export class ManageCarTypesComponent implements OnInit {
   }
   removeDeleteCheck() {
     this.deleteCheckOverride = true;
-    var m: CarMessage = new CarMessage("Warning", `Delete responsibly`);
-    this.messageService.changeMessage(m)
+    this.messageService.genericWarning(`Delete responsibly`);
     this.deleteCheck = false;
   }
 
@@ -112,13 +109,12 @@ export class ManageCarTypesComponent implements OnInit {
     this.carService.deleteCarTypes(id)
       .subscribe(res => {
         this.summonCarTypes();
-        var m: CarMessage = new CarMessage("Success", `CarType no. ${id} was deleted`);
-        this.messageService.changeMessage(m)
-      }, (err) => {
-        console.log(err);
-        //     this.isLoadingResults = false;
-        var m: CarMessage = new CarMessage("Error!", `CarType no. ${id} was NOT deleted`);
-        this.messageService.changeMessage(m)
+        this.messageService.genericSuccess(`CarType no. ${id} was deleted`);
+        this.summonCarTypes();
+      },
+        (err) => {
+          //     this.isLoadingResults = false;
+          this.messageService.genericError(`CarType no. ${id} was NOT deleted`);
       }
       );
   }

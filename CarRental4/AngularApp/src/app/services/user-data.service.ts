@@ -66,8 +66,7 @@ export class UserDataService {
     if (s == false) {
      // localStorage.removeItem('currentUser');
       localStorage.clear();
-      var m: CarMessage = new CarMessage("Logged out", `so long!`);
-      this.messageService.changeMessage(m)
+      this.messageService.specificMessage("Logged out", `so long!`,'info')
     }
     this.loggedUser.next(loggedUser)
     this.switchLoggedIn(s)

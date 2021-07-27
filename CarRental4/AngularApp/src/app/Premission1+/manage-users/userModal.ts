@@ -14,8 +14,8 @@ export interface DialogData {
 })
 export class userModal {
 
-  editedUser: any = {};
-  sendBackData: User;
+  editedUser: User;// = {};
+ // sendBackData: User;
   hide: boolean = false;
 
   minDate: Date = new Date("1/1/1920");
@@ -28,7 +28,7 @@ export class userModal {
   ) { }
 
   ngOnInit() {
-    this.sendBackData = this.data.user;
+    this.editedUser = Object.assign({}, this.data.user);
   }
 
   onNoClick(): void {
@@ -36,15 +36,6 @@ export class userModal {
   }
   save() {
     console.log(this.editedUser)
-    this.sendBackData.UserName = this.editedUser.UserName ? this.editedUser.UserName : this.sendBackData.UserName;
-    this.sendBackData.Birthdate = this.editedUser.Birthdate ? this.editedUser.Birthdate : this.sendBackData.Birthdate;
-    this.sendBackData.Email = this.editedUser.Email ? this.editedUser.Email : this.sendBackData.Email;
-    this.sendBackData.Fullname = this.editedUser.Fullname ? this.editedUser.Fullname : this.sendBackData.Fullname;
-    this.sendBackData.Gender = this.editedUser.Gender ? this.editedUser.Gender : this.sendBackData.Gender;
-    this.sendBackData.PassportNumber = this.editedUser.PassportNumber ? this.editedUser.PassportNumber : this.sendBackData.PassportNumber;
-    this.sendBackData.Password = this.editedUser.Password ? this.editedUser.Password : this.sendBackData.Password;
-    this.sendBackData.Permission = this.editedUser.Permission ? this.editedUser.Permission : this.sendBackData.Permission;
-    this.sendBackData.PictureUrl = this.editedUser.PictureUrl ? this.editedUser.PictureUrl : this.sendBackData.PictureUrl;
-    this.dialogRef.close(this.sendBackData);
+    this.dialogRef.close(this.editedUser);
   }
 }

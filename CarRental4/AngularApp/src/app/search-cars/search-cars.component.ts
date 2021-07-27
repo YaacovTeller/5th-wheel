@@ -6,6 +6,7 @@ import { CarType, Gear } from '../Classes/CarType';
 import { Router } from '@angular/router';
 import { UserDataService } from '../services/user-data.service';
 import { MessageService, CarMessage } from '../services/message.service';
+import { CarErrorHandler } from '../error-handler';
 
 @Component({
   selector: 'app-search-cars',
@@ -14,7 +15,8 @@ import { MessageService, CarMessage } from '../services/message.service';
 })
 export class SearchCarsComponent implements OnInit {
 
-  fallbackLogo: string = './../../assets/fallbackImages/BrandName.jpg';
+  fallbackLogo: string = './../../assets/fallbackImages/Brand_placeholder.jpg';
+  fallbackCar: string = './../../assets/fallbackImages/Car_placeholder.jpg';
   carTypeFolder: string = `./../../assets/carTypes/`;
   carFolder: string = `./../../assets/cars/`;
   allcarTypeData: CarType[] = [];
@@ -35,29 +37,40 @@ export class SearchCarsComponent implements OnInit {
   }
   defaultCheck: boolean = true;
   AllCarsView: boolean = true;
+  loading: boolean;
 
   constructor(
     private carService: CarDataService,
     private router: Router,
     private userService: UserDataService,
-    private messageService: MessageService) { }
+    private messageService: MessageService,
+    private errorHandler: CarErrorHandler
+    ) { }
 
   ngOnInit() {
+    this.loading = true;
     this.carService.getCars().subscribe(
       carData => {
         this.displayCars = this.allCarData = carData;
         this.availableCars = this.allCarData.filter(a => a.Available)
-      }
+      },
+      error => { this.errorHandler.handleError(error); this.loading = false },
+      () => { this.loading = false }
     );
     this.carService.getCarTypes().subscribe(
       carTypeData => {
         this.displayTypes = this.reducedModels = this.allcarTypeData = carTypeData;
         this.Manufacturers = this.allcarTypeData.map(x => x.Manufacturer).filter((x, i, a) => a.indexOf(x) == i)
         this.Years = this.allcarTypeData.map(x => x.YearOfManufacture).filter((x, i, a) => a.indexOf(x) == i).sort()
-      }
+      },
+      error => { this.errorHandler.handleError(error); this.loading = false },
+      () => { this.loading = false }
     );
     this.userService.swtch.subscribe(swtch => { this.loggedIn = swtch })
 
+  }
+  setDefaultPic(imgTag) {
+    imgTag.src = imgTag.alt == "Type" ? this.fallbackLogo : this.fallbackCar
   }
  
   change() {
@@ -124,8 +137,7 @@ export class SearchCarsComponent implements OnInit {
     }
     else {
       this.router.navigateByUrl('/login');
-      var m: CarMessage = new CarMessage("No logged user", `Please login, or register if you are not yet a member`);
-      this.messageService.changeMessage(m)
+      this.messageService.specificMessage("No logged user", `Please login, or register if you are not yet a member`,'info');
     }
     this.carService.changeCarType(CarType);
   }

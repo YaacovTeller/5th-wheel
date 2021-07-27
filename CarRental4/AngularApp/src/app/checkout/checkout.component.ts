@@ -45,8 +45,7 @@ export class CheckoutComponent implements OnInit {
     //this.rentalForm.controls['User'].setValue(this.user);
     this.rentalComplete = false;
     if (!this.car) {
-      var m: CarMessage = new CarMessage("No selected vehicle", `Dude, you can't check out a lack of car, go back and find one you like`);
-      this.messageService.changeMessage(m)
+      this.messageService.specificMessage("No selected vehicle", `Dude, you can't check out a lack of car, go back and find one you like`, 'info')
       //console.log("LOGGED USER: " + this.loggedUser.UserId)
     }
   }
@@ -71,13 +70,11 @@ export class CheckoutComponent implements OnInit {
     //  console.log("Form valid");
     //  console.log(this.rentalForm.value);
     if (!this.sDate || !this.eDate) {
-      var m: CarMessage = new CarMessage("Unselected dates", "Make sure to select a start and end date");
-      this.messageService.changeMessage(m)
+      this.messageService.specificMessage("Unselected dates", "Make sure to select a start and end date", 'warn')
       return
     }
     else if (this.sDate.getTime() > this.eDate.getTime()) {
-      var m: CarMessage = new CarMessage("Time paradox", "You've managed to request a negative rental. You want us to pay you for it??");
-      this.messageService.changeMessage(m)
+      this.messageService.specificMessage("Time paradox", "You've managed to request a negative rental. You want us to pay you for it??", 'warn')
       return
     }
     
@@ -94,9 +91,8 @@ export class CheckoutComponent implements OnInit {
         .pipe(first())
         .subscribe(
         data => {
-          console.log(data)
-          var m: CarMessage = new CarMessage("Your order has been processed", `Enjoy your car, ${this.loggedUser.UserName}!`);
-          this.messageService.changeMessage(m)
+            console.log(data);
+            this.messageService.specificMessage("Your order has been processed", `Enjoy your car, ${this.loggedUser.UserName}!`, 'success')
           },
         error => {
           console.log(error)
@@ -107,10 +103,6 @@ export class CheckoutComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-        },
-        error => {
-          var m: CarMessage = new CarMessage("Error!", `${error}`);
-          this.messageService.changeMessage(m)
         }
       );
 
