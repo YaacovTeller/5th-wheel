@@ -122,6 +122,7 @@
     <Content Include="dist\AngMat\assets\5thWheel6.png" />
     <Content Include="dist\AngMat\assets\5thWh_line.png" />
     <Content Include="dist\AngMat\assets\5thWh_line_BW.png" />
+    <Content Include="dist\AngMat\assets\5thWh_line_BW2.png" />
     <Content Include="dist\AngMat\assets\boxster_spyder.jpg" />
     <Content Include="dist\AngMat\assets\Bugatti_Divo.jpg" />
     <Content Include="dist\AngMat\assets\Bugatti_Divo_small.png" />
