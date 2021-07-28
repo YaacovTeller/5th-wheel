@@ -5,6 +5,8 @@ import { FAIconClasses } from '../app/FAIcons';
 
 export const environment = {
   production: false,
+  path: "/",
+  version: "0.0.1",
   Url: "http://localhost:64825/api/",
   greeting: `I, mailChimp, will oversee development`,
   mainIcon: FAIconClasses.chimp
