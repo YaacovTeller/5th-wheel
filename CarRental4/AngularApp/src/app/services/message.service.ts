@@ -53,4 +53,7 @@ export class MessageService {
   genericError(text: string) {
     this.specificMessage("Error!", text, 'error')
   }
+  error(error: Error) {
+    this.specificMessage("An error has occurred!", error.name, 'error', error.message);
+  }
 }

@@ -8,10 +8,10 @@ export class CarErrorHandler implements ErrorHandler {
 
   constructor(private messageService: MessageService) { }
 
-  handleError(error: any): void {
+  handleError(error: Error): void {
     console.error("HANDLED ERROR: " + error)
-  //  setTimeout(() => {
-    this.messageService.specificMessage("An error has occurred!", error.name, 'error', error.message);
+    //  setTimeout(() => {
+    this.messageService.error(error)
   //  }, 1000)
   }
 }
