@@ -5,10 +5,10 @@
     </mat-form-field>
     <br>
     <mat-form-field>
-      <input matInput autocomplete="off" [(ngModel)]="editedUser.UserName"  placeholder="Enter user name">
+      <input matInput autocomplete="off" [(ngModel)]="editedUser.UserName" placeholder="Enter user name">
     </mat-form-field>
     <mat-form-field hintLabel="Requires 9 digits">
-      <input matInput autocomplete="off" #passport [(ngModel)]="editedUser.PassportNumber"  maxlength="9" minlength="9" placeholder="Enter passport number">
+      <input matInput autocomplete="off" #passport [(ngModel)]="editedUser.PassportNumber" maxlength="9" minlength="9" placeholder="Enter passport number">
       <mat-hint align="end">{{passport.value?.length || 0}}/9</mat-hint>
     </mat-form-field>
     <br>
@@ -31,7 +31,7 @@
       </mat-select>
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <input autocomplete="off" matInput placeholder="Email" [(ngModel)]="editedUser.Email" >
+      <input autocomplete="off" matInput placeholder="Email" [(ngModel)]="editedUser.Email">
     </mat-form-field>
     <br>
     <mat-divider></mat-divider>
@@ -46,10 +46,21 @@
     <mat-form-field>
       <input autocomplete="off" matInput [(ngModel)]="editedUser.PictureUrl" placeholder="Enter url">
     </mat-form-field>
-    <mat-form-field>
+    <!--<mat-form-field>
       <input matInput #permiss autocomplete="off" maxlength="1" pattern="/[0-2]/g" [(ngModel)]="editedUser.Permission" placeholder="Permission: (0, 1 or 2)">
       <mat-hint>{{permiss.value? (permiss.value | permission):"-"}}</mat-hint>
+    </mat-form-field>-->
+
+    <mat-form-field>
+      <mat-select #permiss autocomplete="off" [(ngModel)]="editedUser.Permission" placeholder="Select permissions">
+        <mat-option disabled value="">Permission:</mat-option>
+        <mat-option value="0">Regular</mat-option>
+        <mat-option value="1">Employee</mat-option>
+        <mat-option value="2">Admin</mat-option>
+      </mat-select>
+      <!--<mat-hint>{{permiss.value? (permiss.value | permission):"-"}}</mat-hint>-->
     </mat-form-field>
+
   </div>
   <br />
   <button mat-raised-button color="accent" (click)="save()"> Save </button>
