@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, ReplaySubject, Observable, throwError, from } from 'rxjs';
-import { Car } from '../Classes/Car';
+import { Car, Car_Branch_Type } from '../Classes/Car';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { CarType } from '../Classes/CarType';
 import { tap, catchError } from 'rxjs/operators';
@@ -58,6 +58,9 @@ export class CarDataService {
       .pipe(tap(data => console.log(/*JSON.stringify(data)*/)),
     //errors
     );
+  }
+  getFullCars(): Observable<Car_Branch_Type[]> {
+    return this.client.get<Car_Branch_Type[]>(this.Url + "CarInfo/GetCars", httpOptions);
   }
 
   private carTypeDelivery = new ReplaySubject<CarType>();

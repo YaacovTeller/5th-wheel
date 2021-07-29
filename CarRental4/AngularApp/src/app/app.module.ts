@@ -26,18 +26,20 @@ import { RentalsComponent } from './rentals/rentals.component';
 
 import { CarDataService } from './services/car-data.service';
 import { UserDataService } from './services/user-data.service';
-import { RegisterComponent } from './register/register.component';
-import { CheckoutComponent } from './checkout/checkout.component';
-import { ManageCarsComponent } from './Premission1+/manage-cars/manage-cars.component';
 import { RentalDataService } from './services/rental-data.service';
+import { BranchDataService } from './services/branch-data.service';
+
+import { CheckoutComponent } from './checkout/checkout.component';
+import { RegisterComponent } from './register/register.component';
 import { CarErrorHandler } from './error-handler';
 import { MessageComponent } from './message/message.component';
+import { ManageCarsComponent } from './Premission1+/manage-cars/manage-cars.component';
 import { ManageReturnsComponent, } from './Premission1+/manage-returns/manage-returns.component';
-import { returnsModal } from './Premission1+/manage-returns/returnsModal';
 import { ManageUsersComponent } from './Premission1+/manage-users/manage-users.component';
 import { ManageCarTypesComponent } from './Premission1+/manage-car-types/manage-car-types.component';
 import { carsModal } from './Premission1+/manage-cars/carsModal';
 import { userModal } from './Premission1+/manage-users/userModal';
+import { returnsModal } from './Premission1+/manage-returns/returnsModal';
 import { carTypeModal } from './Premission1+/manage-car-types/carTypeModal';
 import { ViewRentalsComponent } from './Premission1+/view-rentals/view-rentals.component';
 import { FooterCardsComponent } from './footer-cards/footer-cards.component';
@@ -106,7 +108,7 @@ import { environment } from 'src/environments/environment';
     
   ],
   exports: [permissionPipe],
-  providers: [CarDataService, UserDataService, RentalDataService, permissionPipe,
+  providers: [CarDataService, UserDataService, RentalDataService, BranchDataService, permissionPipe,
     { provide: ErrorHandler, useClass: CarErrorHandler },
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
     { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },

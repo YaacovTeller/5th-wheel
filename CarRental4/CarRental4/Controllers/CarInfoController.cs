@@ -10,6 +10,7 @@ using System.Web.Http.Cors;
 using System.Web.Http.Results;
 using Newtonsoft.Json;
 using System.IO;
+using System.Data.Entity.Validation;
 
 namespace CarRental4.Controllers
 {
@@ -83,6 +84,38 @@ namespace CarRental4.Controllers
                 return entities.Cars.Include(c => c.Branch).Include(c => c.CarType).ToList();
             }
         }
+        [HttpGet]
+        public IEnumerable<Car_Branch_Type> GetFullCars()
+        {
+            using (CarRentalDBEntities entities = new CarRentalDBEntities())
+            {
+                var query = from car in entities.Cars
+                            join carType in entities.CarTypes on car.CarTypeId equals carType.CarTypeId
+                            join branch in entities.Branches on car.BranchId equals branch.BranchId
+                            select new
+                            {
+                                car.CarId,
+                                car.Available,
+                                car.CarNumber,
+                                car.FitForRental,
+                                car.Mileage,
+                                car.PictureUrl,
+                                branch.BranchId,
+                                branch.Address,
+                                branch.Name,
+                                carType.CarTypeId,
+                                carType.Manufacturer,
+                                carType.Model,
+                                carType.PricePerDay,
+                                carType.PricePerDayOver,
+                                carTypePicture = carType.PictureUrl,
+                                carType.Transmission,
+                                carType.YearOfManufacture
+                            };
+                //     entities.Configuration.LazyLoadingEnabled = false;
+                return (IEnumerable<Car_Branch_Type>)query;//.Include(c => c.Branch).Include(c => c.CarType)
+            }
+        }
 
         [HttpGet]
         public IEnumerable<Branch> GetBranches()
@@ -117,7 +150,7 @@ namespace CarRental4.Controllers
                     Email = value.Email,
                     Password = value.Password,
                     PictureUrl = value.PictureUrl,
-                    Permission = 0
+                    Permission = value.Permission
                 };
                 entities.Users.Add(user);
                 entities.SaveChanges();
@@ -187,11 +220,29 @@ namespace CarRental4.Controllers
             if (ModelState.IsValid)
                 using (CarRentalDBEntities entities = new CarRentalDBEntities())
                 {
+                    val.PictureUrl = val.PictureUrl.Length > 0 ? val.PictureUrl : "";
                     entities.Cars.Add(val);
-                    entities.SaveChanges();
+                    try
+                    {
+                        entities.SaveChanges();
+                    }
+                    catch (DbEntityValidationException e)
+                    {
+                        validationMessages(e);
+                    }
+
                     return Request.CreateResponse(HttpStatusCode.OK, "New car created");
                 }
             return Request.CreateResponse(HttpStatusCode.BadRequest, "");
+        }
+        public void validationMessages(DbEntityValidationException e)
+        {
+            var errorMessages = e.EntityValidationErrors
+            .SelectMany(x => x.ValidationErrors)
+            .Select(x => x.ErrorMessage);
+            var fullErrorMessage = string.Join("; ", errorMessages);
+            var exceptionMessage = string.Concat(e.Message, " The validation errors are: ", fullErrorMessage);
+            throw new DbEntityValidationException(exceptionMessage, e.EntityValidationErrors);
         }
     }
 }

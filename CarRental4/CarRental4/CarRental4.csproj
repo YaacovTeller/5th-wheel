@@ -216,8 +216,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\BranchInfoController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\LoginData.cs" />
+    <Compile Include="Models\Car_Branch_Type.cs" />
     <Compile Include="Security\Authentication.cs" />
     <Compile Include="Security\UserSecurity.cs" />
     <Compile Include="Controllers\CarInfoController.cs" />
