@@ -24,8 +24,19 @@
   </mat-form-field>
   <br />
   <mat-form-field>
-    <input matInput [(ngModel)]="editedCar.Transmission" placeholder="Transmission">
+    <mat-select autocomplete="off" [(ngModel)]="editedCar.Transmission" placeholder="Select Transmission">
+      <mat-option *ngFor="let gear of gears" [value]=gear>{{gear}}</mat-option>
+      <!--<mat-option [value]=gears[0]>{{gears[0]}}</mat-option>
+      <mat-option [value]=gears[1]>{{gears[1]}}</mat-option>-->
+    </mat-select>
   </mat-form-field>
+  <!--<section class="switch">
+    <span>Transmission</span>
+    <mat-slide-toggle [(ngModel)] = "transmissionValue" (change)="toggle($event.checked, editedCar, 'Transmission')" class="switch" color="primary">
+      {{editedCar.Transmission}}
+    </mat-slide-toggle>
+  </section>-->
+
   <br />
   <mat-form-field>
     <input matInput [(ngModel)]="editedCar.PictureUrl" placeholder="PictureUrl">

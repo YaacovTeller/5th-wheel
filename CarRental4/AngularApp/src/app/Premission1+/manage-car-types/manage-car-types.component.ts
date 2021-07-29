@@ -36,10 +36,10 @@ export class ManageCarTypesComponent implements OnInit {
     this.summonCarTypes();
   }
 
-  openDialog(car: CarType): void {
+  openDialog(car?: CarType): void {
     const dialogRef = this.dialog.open(carTypeModal, {
       width: '250px',
-      data: { car: car }
+      data: { car: car, newTypeSwitch: this.newTypeSwitch }
     });
 
     dialogRef.afterClosed().subscribe(result => {
