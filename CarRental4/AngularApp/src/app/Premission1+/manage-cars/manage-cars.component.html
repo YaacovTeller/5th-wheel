@@ -1,28 +1,29 @@
 <h2>Manage cars</h2>
 <div class="tableWrapper">
   <mat-card class="table">
-  <button class="newItemBtn" mat-raised-button color="accent" (click)="openDialog(newCar); newCarSwitcher()"> New Car + </button>
+  <button class="newItemBtn" mat-raised-button color="accent" (click)="newCarSwitcher(); openDialog(newCar);"> New Car + </button>
     <table matSort (matSortChange)="sortData($event)">
       <tr>
         <th mat-sort-header="CarId">Car Id</th>
-        <th mat-sort-header="CarTypeId">Car Type Id</th>
+        <th mat-sort-header="CarType">Car Type</th>
         <th mat-sort-header="CarNumber">Car Number</th>
         <th mat-sort-header="Mileage">Mileage</th>
         <th mat-sort-header="FitForRental">Fit For Rental</th>
         <th mat-sort-header="Available">Available</th>
-        <th mat-sort-header="BranchId">Branch Id</th>
+        <th mat-sort-header="Branch">Branch Address</th>
         <th mat-sort-header="PictureUrl">Picture Url</th>
       </tr>
       <mat-divider></mat-divider>
       <mat-divider></mat-divider>
       <tr *ngFor="let car of sortedCars">
         <td>{{car.CarId}}</td>
-        <td>{{car.CarType.CarTypeId}}</td>
+        <td title="{{car.CarType.Manufacturer}} {{car.CarType.Model}}">{{car.CarType.Manufacturer}} {{car.CarType.Model}}</td>
         <td>{{car.CarNumber}}</td>
         <td>{{car.Mileage}}</td>
         <td>{{car.FitForRental}}</td>
         <td>{{car.Available}}</td>
-        <td>{{car.Branch.BranchId}}</td>
+        <!--<td>{{car.BranchId}}</td>-->
+      <td>{{car.Branch.Address}}</td>
         <td title="{{car.PictureUrl}}">{{car.PictureUrl}}</td>
         <button mat-raised-button color="primary" (click)="openDialog(car)"> Edit </button>
         <button mat-raised-button color="accent" (click)="deleteAttempt(car)"> Delete </button>

@@ -1,14 +1,20 @@
 <mat-card>
-  <mat-form-field>
+  <!--<mat-form-field>
     <input matInput autocomplete="off" type="number" [(ngModel)]="editedCar.CarId" placeholder="Car id">
   </mat-form-field>
-  <br />
-  <mat-form-field>
+  <br />-->
+  <!--<mat-form-field>
     <input matInput autocomplete="off" type="number" [(ngModel)]="editedCar.CarTypeId" placeholder="Car Type">
+  </mat-form-field>-->
+  <mat-form-field>
+    <mat-select #carType autocomplete="off" [(ngModel)]="editedCar.CarTypeId" placeholder="Select CarType">
+      <!--<mat-option disabled value="">CarType:</mat-option>-->
+      <mat-option *ngFor="let type of carTypes" [value]=type.CarTypeId>{{type.Manufacturer}} {{type.Model}}</mat-option>
+    </mat-select>
   </mat-form-field>
   <br />
   <mat-form-field>
-    <input matInput autocomplete="off" maxlength="8" minlenght="5" [(ngModel)]="editedCar.CarNumber" placeholder="Number plate">
+    <input matInput autocomplete="off" maxlength="7" minlength="7" [(ngModel)]="editedCar.CarNumber" placeholder="Number plate">
   </mat-form-field>
   <br />
   <mat-form-field>
@@ -17,21 +23,29 @@
   <br />
   <section class="switch">
     FitForRental
-    <mat-slide-toggle [(ngModel)]="editedCar.FitForRental" [checked]="false" class="switch" color="primary">
+    <mat-slide-toggle [(ngModel)]="editedCar.FitForRental" class="switch" color="primary">      <!--[checked]=true-->
       {{editedCar.FitForRental}}
     </mat-slide-toggle>
   </section>
   <br />
   <section class="switch">
     Available
-    <mat-slide-toggle [(ngModel)]="editedCar.Available" [checked]="false" class="switch" color="primary">
+    <mat-slide-toggle [(ngModel)]="editedCar.Available" class="switch" color="primary">
       {{editedCar.Available}}
     </mat-slide-toggle>
   </section>
   <br />
-  <mat-form-field>
+  <!--<mat-form-field>
     <input matInput autocomplete="off" type="number" [(ngModel)]="editedCar.BranchId" placeholder="BranchId">
+  </mat-form-field>-->
+
+  <mat-form-field>
+    <mat-select #branch autocomplete="off" [(ngModel)]="editedCar.BranchId" placeholder="Select branch">
+      <!--<mat-option disabled value="">Branch:</mat-option>-->
+      <mat-option *ngFor="let branch of branches" [value]=branch.BranchId>{{branch.Address}}</mat-option>
+    </mat-select>
   </mat-form-field>
+
   <br />
   <mat-form-field>
     <input matInput autocomplete="off" [(ngModel)]="editedCar.PictureUrl" placeholder="PictureUrl">

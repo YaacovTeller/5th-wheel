@@ -56,11 +56,11 @@ export class ManageCarsComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.saveToDatabase(result)
-        this.newCarSwitch = false;
       }
       else {
         this.messageService.specificMessage("No edit done", `No input`, 'info');
       }
+      this.newCarSwitch = false;
     });
   }
 
@@ -76,6 +76,9 @@ export class ManageCarsComponent implements OnInit {
           data => {
              this.messageService.specificMessage("Creating car...", `${data}`);
             this.summonCars();
+          }, (err) => {
+            console.log(err);
+            this.messageService.genericError(`Car was NOT created`)
           }
       );
     }
@@ -86,6 +89,9 @@ export class ManageCarsComponent implements OnInit {
           data => {
             this.messageService.specificMessage("Editing car...", `${data}`);
             this.summonCars();
+          }, (err) => {
+            console.log(err);
+            this.messageService.genericError(`Car was NOT edited`)
           }
         );
     }
@@ -142,11 +148,11 @@ export class ManageCarsComponent implements OnInit {
       const isAsc = sort.direction === 'asc';
       switch (sort.active) {
         case 'CarId': return compare(a.CarId, b.CarId, isAsc);
-        case 'CarTypeId': return compare(a.CarType.CarTypeId, b.CarType.CarTypeId, isAsc);
+        case 'CarType': return compare(a.CarType.Manufacturer, b.CarType.Manufacturer, isAsc);
         case 'Mileage': return compare(a.Mileage, b.Mileage, isAsc);
         case 'PictureUrl': return compare(a.PictureUrl, b.PictureUrl, isAsc);
         case 'FitForRental': return compare(a.FitForRental, b.FitForRental, isAsc);
-        case 'BranchId': return compare(a.Branch.BranchId, b.Branch.BranchId, isAsc);
+        case 'Branch': return compare(a.Branch.Address, b.Branch.Address, isAsc);
         case 'CarNumber': return compare(a.CarNumber, b.CarNumber, isAsc);
         case 'Available': return compare(a.Available, b.Available, isAsc);
         default: return 0;
