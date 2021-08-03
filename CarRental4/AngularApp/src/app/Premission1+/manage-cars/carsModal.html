@@ -7,6 +7,7 @@
     <input matInput autocomplete="off" type="number" [(ngModel)]="editedCar.CarTypeId" placeholder="Car Type">
   </mat-form-field>-->
   <mat-form-field>
+   <mat-spinner style=" margin:0 auto; display: flex; justify-content: center;" diameter="20" *ngIf="carTypes" color="warn"></mat-spinner> <!-- mode="determinate" "value="100"-->
     <mat-select #carType autocomplete="off" [(ngModel)]="editedCar.CarTypeId" placeholder="Select CarType">
       <!--<mat-option disabled value="">CarType:</mat-option>-->
       <mat-option *ngFor="let type of carTypes" [value]=type.CarTypeId>{{type.Manufacturer}} {{type.Model}}</mat-option>

@@ -8,7 +8,7 @@ namespace CarRental4
 {
     public class UserSecurity
     {
-        public static bool Login(string username, string password)
+        public static bool CheckLogin(string username, string password)
         {
             using (CarRentalDBEntities entities = new CarRentalDBEntities())
             {

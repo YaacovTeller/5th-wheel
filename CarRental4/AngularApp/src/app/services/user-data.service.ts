@@ -61,26 +61,18 @@ export class UserDataService {
       .pipe(tap(data => console.log(data)))
   }
 
-  Servicelogin(s: boolean, loggedUser) {
+  Servicelogin(s: boolean, loggedUser: User) {
    // this.loginInfo.next(s)
     if (s == false) {
-     // localStorage.removeItem('currentUser');
-      localStorage.clear();
-      this.messageService.specificMessage("Logged out", `so long!`,'info')
+      //  localStorage.clear();
+      localStorage.removeItem('currentUser');
+      this.messageService.specificMessage("Logged out", `so long!`, 'info')
+    }
+    else {
+      localStorage.setItem('currentUser', JSON.stringify(loggedUser));
+      this.messageService.specificMessage("Login succeeded!", `hello ${loggedUser.UserName}!`, 'success');
     }
     this.loggedUser.next(loggedUser)
     this.switchLoggedIn(s)
   }
-
 }
-//const Observr = {
-//  next: x => console.log(x),
-//  complete: () =>
-//}
-//.pipe(map(data => user = data))
-
-    //this.client.post(this.Url + "UserInfo/Login", login).subscribe//.pipe(map(data => user = data))
-    //  (data => { console.log("Log attempt: " + JSON.stringify(data, null, 2)) }),
-    //  (error => console.log(error));
-
-    //return JSON.parse(user);

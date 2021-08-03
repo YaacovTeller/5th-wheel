@@ -17,7 +17,7 @@ namespace CarRental4.Controllers
             User attempt;
             using (CarRentalDBEntities entities = new CarRentalDBEntities())
             attempt = entities.Users.FirstOrDefault(c => c.UserName == loginAttempt.userName && c.Password == loginAttempt.password);
-            if (attempt != null)
+            if (true)
             {
 
             }

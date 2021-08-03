@@ -18,8 +18,7 @@ export class LoginComponent implements OnInit {
   userAttempt: User;
   loggedUser: User;
   loggedIn: boolean = false;
-  logCheck: any;
-  hide: boolean = true;
+//  hide: boolean = true;
 
   constructor(
     private router: Router,
@@ -30,12 +29,6 @@ export class LoginComponent implements OnInit {
       UserName: this.usernameFormControl,
       Password: this.passwordFormControl,
     });
-
-    //this.userService.getUsers().subscribe(
-    //  Users => {
-    //    this.Users = Users;
-    //    console.log(Users)
-    //  })
   }
 
 userForm: FormGroup;
@@ -68,79 +61,42 @@ passwordFormControl = new FormControl('', [Validators.required, Validators.minLe
 
   onSubmit() {
     if (this.userForm.invalid) {
-      this.messageService.specificMessage("Login failed!", `input was invalid`, 'warn');
+      this.messageService.specificMessage("Login failed!", `input was invalid, onSubmit`, 'warn');
       return;
     }
     if (this.userForm.valid) {
-
-      //this.userService.login(this.usernameFormControl.value, this.passwordFormControl.value)
-
-      //this.userService.register(this.userForm.value)
-      //  .pipe(first())
-      //  .subscribe(
-      //    data => {
-      //      // this.alertService.success('Registration successful', true);
-      //      this.router.navigate(['/login']);
-      //    },
-      //    error => {
-      //      // this.alertService.error(error);
-      //      this.loading = false;
-      //    });
       this.logAttempt = {
         userName: this.usernameFormControl.value.toLowerCase(),
         password: this.passwordFormControl.value
       }
-
-      this.userService.Login(this.logAttempt).subscribe(data => this.userAttempt = data)
-
-      //OLD LOGIN WORKAROUND
-      //var userAttempt = this.Users.find(
-      //  u => u.UserName.toLowerCase() == this.usernameFormControl.value.toLowerCase() && u.Password == this.passwordFormControl.value
-      //)
-      //console.log(userAttempt)
-      //OLD LOGIN WORKAROUND
-
-   //   debugger
-
-      //this.logCheck = setInterval(() => this.successfulLogin() ,20)
-      //setTimeout(() => { this.clear(), this.throwError() }, 500);
-
-   //   this.userAttempt == null;
-      setTimeout(() => this.successfulLogin(), 500);
+      this.userService.Login(this.logAttempt).subscribe(data => {
+        this.successfulLogin(data)
+      },
+        error => {
+          this.messageService.specificMessage("Login failed!", 'loginAttempt Error', 'warn');//`password or user name are incorrect`
+        }
+      )
     }
-  }
-  clear() {
-    clearInterval(this.logCheck);
   }
   throwError() {
     this.messageService.specificMessage("Login failed!", `password or user name are incorrect`, 'warn');
   }
-  successfulLogin() {
-  //  debugger
-    //if (this.userAttempt === undefined) {
-    //  return;
-    //}
-    if (this.userAttempt) {
-      this.clear()
-      this.loggedUser = this.userAttempt;
+  successfulLogin(userAttempt: User) {
+    if (userAttempt) {
+      this.loggedUser = userAttempt;
       this.userForm.reset();
       this.router.navigateByUrl('/search');
-      //this.router.navigateByUrl('/rentals');
-      this.userService.Servicelogin(true, this.loggedUser)
-      var _this = this;
-      this.messageService.specificMessage("Login succeeded!", `hello ${_this.loggedUser.UserName}!`, 'success');
-      localStorage.setItem('currentUser', JSON.stringify(_this.loggedUser));
-      let a = JSON.parse(localStorage.getItem('currentUser'));
-      console.log(a)
+      this.userService.Servicelogin(true, userAttempt)
       }
     else {
       this.throwError() 
       }
   }
-  logOut() {
-    this.userService.Servicelogin(false, null)
-    //   localStorage.removeItem('currentUser');
-    this.userAttempt == null;
-  }
+  //logOut() {
+  //  this.userService.Servicelogin(false, null)
+  //  //   localStorage.removeItem('currentUser');
+  //  this.userAttempt == null; //?
+  //  this.logAttempt == null; //?
+  //}
 }
 

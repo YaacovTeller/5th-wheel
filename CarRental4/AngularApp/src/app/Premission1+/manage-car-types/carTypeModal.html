@@ -25,9 +25,10 @@
   <br />
   <mat-form-field>
     <mat-select autocomplete="off" [(ngModel)]="editedCar.Transmission" placeholder="Select Transmission">
+      <div class=""><mat-spinner *ngIf="!gears" color="warn"></mat-spinner></div>
       <mat-option *ngFor="let gear of gears" [value]=gear>{{gear}}</mat-option>
       <!--<mat-option [value]=gears[0]>{{gears[0]}}</mat-option>
-      <mat-option [value]=gears[1]>{{gears[1]}}</mat-option>-->
+  <mat-option [value]=gears[1]>{{gears[1]}}</mat-option>-->
     </mat-select>
   </mat-form-field>
   <!--<section class="switch">

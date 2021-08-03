@@ -25,7 +25,7 @@ namespace CarRental4
                 string username = usernamePasswordArray[0];
                 string password = usernamePasswordArray[1];
 
-                if (UserSecurity.Login(username, password))
+                if (UserSecurity.CheckLogin(username, password))
                 {
                     Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(username), null);
                 }
